@@ -1,4 +1,3 @@
-import AboutHome from '../Components/aboutHome';
 import Navbar from '../Components/Navbar';
 
 function About(){
