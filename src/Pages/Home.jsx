@@ -1,5 +1,5 @@
 import Hero from '../Components/Hero';
-import AboutHome from '../Components/aboutHome';
+import AboutHome from '../Components/AboutHome';
 import PopularDishes from '../Components/Dishes';
 import OurStory from '../Components/OurStory';
 import HowWeWork from '../Components/HowItWorks';
