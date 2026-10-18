@@ -110,7 +110,7 @@ export const dishes = [
   },
   {
     id: 'puff-puff-donuts',
-    name: 'Puff Puff',
+    name: 'Small Chops',
     category: 'Snacks',
     tag: 'Sweet',
     description:

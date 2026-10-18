@@ -92,7 +92,7 @@ function AboutHome() {
           <div className="services__header-left">
             <p className="services__eyebrow">What we cook for you</p>
             <h2 className="services__title">
-              Four ways to bring a<br />private chef home.
+             Exceptional cuisine, tailored to every occasion
             </h2>
           </div>
 
