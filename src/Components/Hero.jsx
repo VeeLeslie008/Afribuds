@@ -2,7 +2,6 @@ function Hero(){
   return (
     <section className="hero" id="hero">
       <div className="hero__bg" aria-hidden="true"></div>
-      <div className="hero__overlay" aria-hidden="true"></div>
 
       <div className="hero__container">
         <div className="hero__eyebrow">

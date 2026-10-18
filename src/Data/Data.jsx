@@ -106,7 +106,7 @@ export const dishes = [
     rating: 4.9,
     reviews: 98,
     image:
-      'https://scontent.fabv3-1.fna.fbcdn.net/v/t39.30808-6/497537218_2013195222821280_5382091176398450600_n.jpg?stp=dst-jpg_tt6&cstp=mx1170x1317&ctp=s565x565&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=fF51dTx2WjMQ7kNvwEcSMQO&_nc_oc=AdqR4MgbSB-IvyD6_hwGoyqmcTTXQD2llfH7prFMKgbLAO2dYnSK2d9NPHgwvbM9qEw&_nc_zt=23&_nc_ht=scontent.fabv3-1.fna&_nc_gid=lt8VsryghuBvVvXomLFxsw&_nc_ss=7a289&oh=00_AQMAOupMrEz-_9lIptBImWS_NwLrRkCC4fz1RRhBLdOmOQ&oe=6AD3CCEB',
+      'https://www.surulerefoods.com/cdn/shop/files/moi_4.png?v=1771343665&width=1445',
   },
   {
     id: 'puff-puff-donuts',
@@ -444,6 +444,7 @@ export const footerColumns = [
       { label: 'About Us', href: '/about' },
       { label: 'Our Chefs', href: '/about' },
       { label: 'Careers', href: '/careers' },
+      { label: 'Terms & Conditions', href: '/terms' }, // Added here
     ],
   },
   {
