@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import { services } from '../Data/Data';
+import { services } from '../../Data/Data';
 
 function AboutHome() {
   const trackRef = useRef(null);
