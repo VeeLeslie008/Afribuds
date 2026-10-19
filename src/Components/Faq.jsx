@@ -1,8 +1,35 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { faqs } from '../Data/Data';
 
 function Faq() {
   const [openId, setOpenId] = useState(faqs[0].id);
+
+  // --- Intersection Observer for Animations ---
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(function () {
+    const observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect(); // Only animate once
+          }
+        });
+      },
+      { threshold: 0.15 } // Triggers when 15% of the section is visible
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return function () {
+      observer.disconnect();
+    };
+  }, []);
+  // ----------------------------------------------
 
   function toggleItem(id) {
     setOpenId(function (current) {
@@ -11,7 +38,10 @@ function Faq() {
   }
 
   return (
-    <section className="faq">
+    <section
+      className={'faq' + (isVisible ? ' faq--visible' : '')}
+      ref={sectionRef}
+    >
       <div className="faq__container">
         {/* ---------- Left — intro ---------- */}
         <aside className="faq__intro">

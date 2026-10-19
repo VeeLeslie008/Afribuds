@@ -1,5 +1,6 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useContext } from 'react';
 import { dishes, categories } from '../Data/Data';
+import { CartContext } from './Cartcontext'; 
 
 function PopularDishes() {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -7,8 +8,40 @@ function PopularDishes() {
   const [paused, setPaused] = useState(false);
   const trackRef = useRef(null);
   const activeSlideRef = useRef(0);
-  const resetKeyRef = useRef(0);
   const [resetKey, setResetKey] = useState(0);
+
+  // --- Intersection Observer for Animations ---
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(function () {
+    const observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return function () {
+      observer.disconnect();
+    };
+  }, []);
+  // ----------------------------------------------
+
+  // Safely pull the addToCart function from Context
+  const cartContext = useContext(CartContext);
+  const addToCart = cartContext ? cartContext.addToCart : function() {
+    console.warn("Cart context is missing. Check App.jsx for CartProvider.");
+  };
 
   const visibleDishes =
     activeCategory === 'all'
@@ -17,7 +50,6 @@ function PopularDishes() {
           return dish.category === activeCategory;
         });
 
-  // Reset to first slide whenever the category changes
   useEffect(
     function () {
       const track = trackRef.current;
@@ -33,7 +65,6 @@ function PopularDishes() {
     [activeCategory]
   );
 
-  // Keep ref in sync so the interval always reads fresh value
   useEffect(
     function () {
       activeSlideRef.current = activeSlide;
@@ -41,7 +72,6 @@ function PopularDishes() {
     [activeSlide]
   );
 
-  // Track scroll position so the dots follow the active card
   useEffect(
     function () {
       const track = trackRef.current;
@@ -68,7 +98,6 @@ function PopularDishes() {
     [visibleDishes.length]
   );
 
-  // Auto-swipe — only fires when the track is actually scrollable (mobile)
   useEffect(
     function () {
       if (paused) return;
@@ -78,7 +107,6 @@ function PopularDishes() {
         const track = trackRef.current;
         if (!track) return;
 
-        // Bail on desktop (grid is not scrollable)
         const isScrollable = track.scrollWidth > track.clientWidth + 4;
         if (!isScrollable) return;
 
@@ -126,9 +154,11 @@ function PopularDishes() {
   }
 
   return (
-    <section className="dishes">
+    <section
+      className={'dishes' + (isVisible ? ' dishes--visible' : '')}
+      ref={sectionRef}
+    >
       <div className="dishes__container">
-        {/* ---------- Header ---------- */}
         <header className="dishes__header">
           <div className="dishes__header-left">
             <p className="dishes__eyebrow">From our kitchen</p>
@@ -145,7 +175,6 @@ function PopularDishes() {
           </p>
         </header>
 
-        {/* ---------- Category Tabs ---------- */}
         <div className="dishes__tabs" role="tablist" aria-label="Dish categories">
           {categories.map(function (category) {
             const isActive = activeCategory === category.id;
@@ -168,22 +197,13 @@ function PopularDishes() {
           })}
         </div>
 
-        {/* ---------- Grid / Carousel ---------- */}
         <div
           className="dishes__grid"
           ref={trackRef}
-          onMouseEnter={function () {
-            setPaused(true);
-          }}
-          onMouseLeave={function () {
-            setPaused(false);
-          }}
-          onTouchStart={function () {
-            setPaused(true);
-          }}
-          onTouchEnd={function () {
-            setPaused(false);
-          }}
+          onMouseEnter={function () { setPaused(true); }}
+          onMouseLeave={function () { setPaused(false); }}
+          onTouchStart={function () { setPaused(true); }}
+          onTouchEnd={function () { setPaused(false); }}
         >
           {visibleDishes.map(function (dish) {
             return (
@@ -224,12 +244,15 @@ function PopularDishes() {
                       </span>
                     </div>
 
-                    <button type="button" className="dishes__card-cta">
+                    <button 
+                      type="button" 
+                      className="dishes__card-cta"
+                      onClick={function () {
+                        addToCart(dish); 
+                      }}
+                    >
                       Order
-                      <i
-                        className="fa-solid fa-plus dishes__card-cta-icon"
-                        aria-hidden="true"
-                      ></i>
+                      <i className="fa-solid fa-plus dishes__card-cta-icon" aria-hidden="true"></i>
                     </button>
                   </div>
                 </div>
@@ -238,11 +261,10 @@ function PopularDishes() {
           })}
         </div>
 
-        {/* ---------- Mobile carousel helpers ---------- */}
         <div className="dishes__carousel-meta">
           <p className="dishes__swipe-hint">
+            <i className="fa-solid fa-arrow-left" aria-hidden="true"></i>
             Swipe to explore
-            <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </p>
 
           <div className="dishes__dots" role="tablist" aria-label="Dishes">
@@ -267,14 +289,10 @@ function PopularDishes() {
           </div>
         </div>
 
-        {/* ---------- View All ---------- */}
         <div className="dishes__view-all">
           <a href="/menu" className="dishes__view-all-btn">
             View Full Menu
-            <i
-              className="fa-solid fa-arrow-right dishes__view-all-icon"
-              aria-hidden="true"
-            ></i>
+            <i className="fa-solid fa-arrow-right dishes__view-all-icon" aria-hidden="true"></i>
           </a>
         </div>
       </div>

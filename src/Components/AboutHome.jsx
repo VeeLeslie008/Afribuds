@@ -8,6 +8,33 @@ function AboutHome() {
   const [paused, setPaused] = useState(false);
   const [resetKey, setResetKey] = useState(0);
 
+  // --- Intersection Observer for Animations ---
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(function () {
+    const observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect(); // Only animate once
+          }
+        });
+      },
+      { threshold: 0.15 } // Triggers when 15% of the section is visible
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return function () {
+      observer.disconnect();
+    };
+  }, []);
+  // ----------------------------------------------
+
   function getCardMetrics() {
     const track = trackRef.current;
     if (!track) return null;
@@ -86,13 +113,16 @@ function AboutHome() {
   }, [paused, resetKey]);
 
   return (
-    <section className="services">
+    <section
+      className={'services' + (isVisible ? ' services--visible' : '')}
+      ref={sectionRef}
+    >
       <div className="services__container">
         <header className="services__header">
           <div className="services__header-left">
             <p className="services__eyebrow">What we cook for you</p>
             <h2 className="services__title">
-             Exceptional cuisine, tailored to every occasion
+              Exceptional cuisine, tailored to every occasion
             </h2>
           </div>
 

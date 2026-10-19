@@ -1,6 +1,82 @@
-function Hero(){
+import React, { useState, useEffect, useRef } from 'react';
+
+// Sub-component to handle the auto-counting logic
+function CountUp({ end, decimals, suffix, startAnimation }) {
+  const [value, setValue] = useState(0);
+
+  useEffect(
+    function () {
+      if (!startAnimation) return;
+
+      let startTime;
+      let animationFrame;
+
+      function animate(now) {
+        if (!startTime) startTime = now;
+        const progress = Math.min((now - startTime) / 2000, 1); // 2000ms duration
+        const eased = 1 - Math.pow(1 - progress, 3); // Ease-out cubic
+
+        setValue(end * eased);
+
+        if (progress < 1) {
+          animationFrame = requestAnimationFrame(animate);
+        } else {
+          setValue(end);
+        }
+      }
+
+      animationFrame = requestAnimationFrame(animate);
+
+      return function () {
+        cancelAnimationFrame(animationFrame);
+      };
+    },
+    [end, startAnimation]
+  );
+
   return (
-    <section className="hero" id="hero">
+    <span>
+      {value.toFixed(decimals)}
+      {suffix}
+    </span>
+  );
+}
+
+function Hero() {
+  const [isVisible, setIsVisible] = useState(false);
+  const heroRef = useRef(null);
+
+  useEffect(
+    function () {
+      const observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              setIsVisible(true);
+              observer.disconnect(); // Stop observing once animated in
+            }
+          });
+        },
+        { threshold: 0.1 } // Triggers when 10% of the hero is visible
+      );
+
+      if (heroRef.current) {
+        observer.observe(heroRef.current);
+      }
+
+      return function () {
+        observer.disconnect();
+      };
+    },
+    []
+  );
+
+  return (
+    <section
+      className={'hero' + (isVisible ? ' hero--visible' : '')}
+      id="hero"
+      ref={heroRef}
+    >
       <div className="hero__bg" aria-hidden="true"></div>
 
       <div className="hero__container">
@@ -23,9 +99,9 @@ function Hero(){
         {/* Subheadline */}
         <p className="hero__subtitle">
           Afribud brings the warmth of African kitchens into every plate —
-intimate dinners, event catering, and weekly meal experiences
-built on bold spices and recipes passed down with care. A taste
-of home, delivered with a quiet kind of luxury.
+          intimate dinners, event catering, and weekly meal experiences
+          built on bold spices and recipes passed down with care. A taste
+          of home, delivered with a quiet kind of luxury.
         </p>
 
         {/* CTA */}
@@ -49,21 +125,21 @@ of home, delivered with a quiet kind of luxury.
         <div className="hero__stats">
           <div className="hero__stat">
             <div className="hero__stat-value">
-              12+
+              <CountUp end={12} decimals={0} suffix="+" startAnimation={isVisible} />
             </div>
             <div className="hero__stat-label">Years Cooking</div>
           </div>
 
           <div className="hero__stat">
             <div className="hero__stat-value">
-              400+
+              <CountUp end={400} decimals={0} suffix="+" startAnimation={isVisible} />
             </div>
             <div className="hero__stat-label">Events Catered</div>
           </div>
 
           <div className="hero__stat">
             <div className="hero__stat-value">
-              4.98
+              <CountUp end={4.98} decimals={2} suffix="" startAnimation={isVisible} />
             </div>
             <div className="hero__stat-label">Client Rating</div>
           </div>
@@ -71,6 +147,6 @@ of home, delivered with a quiet kind of luxury.
       </div>
     </section>
   );
-};
+}
 
 export default Hero;

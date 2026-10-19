@@ -1,11 +1,42 @@
+import { useState, useRef, useEffect } from 'react';
 import { footerColumns, footerSocials, footerBrand } from '../Data/Data';
+import logo from '../assets/logo-main.png'; // <-- IMPORT YOUR LOGO HERE
 
 function Footer() {
   const year = new Date().getFullYear();
 
-  return (
-    <footer className="footer">
+  // --- Intersection Observer for Animations ---
+  const footerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
+  useEffect(function () {
+    const observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect(); // Only animate once
+          }
+        });
+      },
+      { threshold: 0.1 } // Triggers when 10% of the footer is visible
+    );
+
+    if (footerRef.current) {
+      observer.observe(footerRef.current);
+    }
+
+    return function () {
+      observer.disconnect();
+    };
+  }, []);
+  // ----------------------------------------------
+
+  return (
+    <footer
+      className={'footer' + (isVisible ? ' footer--visible' : '')}
+      ref={footerRef}
+    >
       {/* ---------- Main footer ---------- */}
       <div className="footer__main">
         <div className="footer__container">
@@ -14,7 +45,12 @@ function Footer() {
             {/* ---------- Brand block (Left) ---------- */}
             <div className="footer__brand">
               <a href="/" className="footer__brand-logo">
-                {footerBrand.name}
+                {/* REPLACED TEXT WITH LOGO IMAGE */}
+                <img 
+                  src={logo} 
+                  alt={footerBrand.name} 
+                  className="footer__brand-logo-img" 
+                />
               </a>
 
               <p className="footer__brand-tagline">{footerBrand.tagline}</p>

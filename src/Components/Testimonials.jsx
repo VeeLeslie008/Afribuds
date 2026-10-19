@@ -8,6 +8,33 @@ function Testimonials() {
   const trackRef = useRef(null);
   const activeSlideRef = useRef(0);
 
+  // --- Intersection Observer for Animations ---
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(function () {
+    const observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect(); // Only animate once
+          }
+        });
+      },
+      { threshold: 0.15 } // Triggers when 15% of the section is visible
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return function () {
+      observer.disconnect();
+    };
+  }, []);
+  // ----------------------------------------------
+
   useEffect(
     function () {
       activeSlideRef.current = activeSlide;
@@ -99,7 +126,10 @@ function Testimonials() {
   }
 
   return (
-    <section className="testimonials">
+    <section
+      className={'testimonials' + (isVisible ? ' testimonials--visible' : '')}
+      ref={sectionRef}
+    >
       <div className="testimonials__container">
         {/* ---------- Header ---------- */}
         <header className="testimonials__header">

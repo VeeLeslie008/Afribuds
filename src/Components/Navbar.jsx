@@ -1,4 +1,7 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { CartContext } from './Cartcontext';
+import { Link } from 'react-router-dom';
+import logo from '../assets/logo-main.png'; // <-- Importing your logo here
 
 const MOBILE_BREAKPOINT = 900;
 
@@ -15,26 +18,24 @@ const navLinks = [
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { cartCount } = useContext(CartContext);
 
   function toggleMenu() {
-    setIsOpen(function (prev) {
-      return !prev;
-    });
+    setIsOpen(!isOpen);
   }
 
   function closeMenu() {
     setIsOpen(false);
   }
+
   useEffect(function () {
     function handleScroll() {
       const hero = document.getElementById('hero');
-      const threshold = hero
-        ? hero.offsetHeight - 80
-        : window.innerHeight * 0.8;
+      const threshold = hero ? hero.offsetHeight - 80 : window.innerHeight * 0.8;
       setScrolled(window.scrollY > threshold);
     }
 
-    handleScroll(); // run once on mount
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleScroll);
 
@@ -44,11 +45,9 @@ function Navbar() {
     };
   }, []);
 
-  // Lock page scroll
   useEffect(
     function () {
       document.body.style.overflow = isOpen ? 'hidden' : 'unset';
-
       function onKey(e) {
         if (e.key === 'Escape') setIsOpen(false);
       }
@@ -62,7 +61,6 @@ function Navbar() {
     [isOpen]
   );
 
-  // Close the drawer if the window is widened to desktop size
   useEffect(function () {
     function onResize() {
       if (window.innerWidth > MOBILE_BREAKPOINT) setIsOpen(false);
@@ -81,9 +79,11 @@ function Navbar() {
   return (
     <nav className={navClass}>
       <div className="navbar__container">
+        
         {/* Logo */}
         <a href="/" className="navbar__logo" onClick={closeMenu}>
-          <span className="navbar__logo-text">AfriBuds</span>
+          {/* Using the imported logo variable here */}
+          <img src={logo} alt="AfriBuds" className="navbar__logo-img" />
         </a>
 
         {/* Hamburger */}
@@ -100,15 +100,16 @@ function Navbar() {
           ></i>
         </button>
 
-        {/* Backdrop (mobile only) */}
+        {/* Backdrop */}
         <div
           className={`navbar__backdrop ${isOpen ? 'active' : ''}`}
           onClick={closeMenu}
           aria-hidden="true"
         ></div>
 
-        {/* ONE drawer: menu + CTA together */}
+        {/* Drawer */}
         <div className={`navbar__right ${isOpen ? 'active' : ''}`}>
+          
           <ul className="navbar__menu">
             {navLinks.map(function (link) {
               return (
@@ -125,13 +126,23 @@ function Navbar() {
             })}
           </ul>
 
-          <a href="/book" className="navbar__cta" onClick={closeMenu}>
-            Book a Consultation
-            <i
-              className="fa-solid fa-arrow-right navbar__cta-arrow"
-              aria-hidden="true"
-            ></i>
-          </a>
+          <div className="navbar__actions">
+            {/* Cart Icon */}
+            <Link to="/cart" className="navbar__cart" onClick={closeMenu} aria-label="View Cart">
+              <i className="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+              {cartCount > 0 && (
+                <span className="navbar__cart-badge">{cartCount}</span>
+              )}
+            </Link>
+
+            {/* CTA */}
+            {/* Change to Link for CTA */}
+            <Link to="/book" className="navbar__cta" onClick={closeMenu}>
+              Book a Consultation
+              <i className="fa-solid fa-arrow-right navbar__cta-arrow" aria-hidden="true"></i>
+            </Link>
+          </div>
+
         </div>
       </div>
     </nav>

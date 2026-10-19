@@ -17,7 +17,7 @@
 
   /* Navbar-specific dark glass */
   --navbar-glass:        rgba(28, 22, 18, 0.55);
-  --navbar-glass-solid:  rgba(28, 22, 18, 0.45);
+  --navbar-glass-solid:  rgba(20, 15, 12, 0.88);
   --navbar-border:       rgba(255, 255, 255, 0.1);
   --navbar-border-solid: rgba(255, 255, 255, 0.14);
 }
@@ -30,22 +30,16 @@
   width: 100%;
   z-index: 1000;
   padding: 18px 0;
-
-  /* Dark glass — always on, so text is readable even at the top of the hero */
   background: var(--navbar-glass);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
   backdrop-filter: blur(20px) saturate(160%);
   border-bottom: 1px solid var(--navbar-border);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
-
-  transition: background-color 0.35s ease,
-              padding 0.35s ease,
-              border-color 0.35s ease,
-              box-shadow 0.35s ease,
+  transition: background-color 0.35s ease, padding 0.35s ease,
+              border-color 0.35s ease, box-shadow 0.35s ease,
               backdrop-filter 0.35s ease;
 }
 
-/* Scrolled past the hero — deeper, more opaque glass */
 .navbar--scrolled {
   padding: 12px 0;
   background: var(--navbar-glass-solid);
@@ -53,6 +47,14 @@
   backdrop-filter: blur(24px) saturate(180%);
   border-bottom: 1px solid var(--navbar-border-solid);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.32);
+}
+
+.navbar--open {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  background: transparent;
+  border-bottom-color: transparent;
+  box-shadow: none;
 }
 
 .navbar__container {
@@ -69,22 +71,20 @@
 .navbar__logo {
   display: flex;
   align-items: center;
-  gap: 12px;
   text-decoration: none;
   flex-shrink: 0;
 }
 
-.navbar__logo-text {
-  font-family: 'Georgia', serif;
-  font-size: 19px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  white-space: nowrap;
-  color: #ffffff;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+/* Image styling to prevent stretching */
+.navbar__logo-img {
+  height: 42px; 
+  width: auto;
+  max-width: 160px;
+  object-fit: contain; /* Keeps aspect ratio perfect */
+  display: block;
 }
 
-/* ---------- Right wrapper (menu + CTA) ---------- */
+/* ---------- Right Wrapper ---------- */
 .navbar__right {
   display: flex;
   align-items: center;
@@ -109,15 +109,13 @@
   font-weight: 500;
   letter-spacing: 0.4px;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-  transition: color 0.2s ease, opacity 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .navbar__link:hover {
-  color: #ffffff;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+  color: var(--accent-orange);
 }
 
-/* Subtle underline accent on hover */
 .navbar__link::after {
   content: '';
   position: absolute;
@@ -133,7 +131,55 @@
   width: 100%;
 }
 
-/* ---------- CTA ---------- */
+/* ---------- Actions (Cart + CTA) ---------- */
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Cart Button */
+.navbar__cart {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  flex-shrink: 0;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.navbar__cart:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.navbar__cart-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: var(--accent-orange);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--surface);
+}
+
+/* CTA Button */
 .navbar__cta {
   display: inline-flex;
   align-items: center;
@@ -154,7 +200,7 @@
 }
 
 .navbar__cta:hover {
-  background: #ff6d00;
+  background: #cf5517;
   border-color: #cf5517;
   transform: translateY(-1px);
   box-shadow: 0 10px 22px rgba(232, 99, 31, 0.45);
@@ -164,12 +210,6 @@
   font-size: 10px;
   line-height: 1;
   color: #ffffff;
-}
-
-.navbar--open {
-  background: var(--navbar-glass-solid);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  backdrop-filter: blur(24px) saturate(180%);
 }
 
 /* ---------- Hamburger ---------- */
@@ -184,14 +224,14 @@
   z-index: 1100;
   line-height: 1;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .navbar__hamburger:hover {
   color: var(--accent-orange);
 }
 
-/* ---------- Backdrop (base — off) ---------- */
+/* ---------- Backdrop ---------- */
 .navbar__backdrop {
   display: none;
 }
@@ -217,22 +257,6 @@ body {
   color: #2B2420;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   overflow-x: hidden;
-}
-
-/* Root Code */
-:root {
-  --bg:              #FAF7F2;
-  --surface:         #FFFFFF;
-  --text:            #2B2420;
-  --muted:           #E8E1D6;
-  --accent-orange:   #E8631F;
-
-  /* Glassmorphism code*/
-  --glass-fill:        rgba(255, 255, 255, 0.15);
-  --glass-fill-hover:  rgba(255, 255, 255, 0.25);
-  --glass-border:      #ffffff;
-  --glass-blur:        blur(20px) saturate(140%);
-  --glass-shadow:      rgba(43, 36, 32, 0.12);
 }
 
 /* Hero section styling */
@@ -334,7 +358,7 @@ body {
 /* ---------- Subtitle ---------- */
 .hero__subtitle {
   max-width: 640px;
-  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  font-size: 1.25rem;
   line-height: 1.7;
   color: rgba(250, 247, 242, 0.85);
   margin: 0;
@@ -419,13 +443,14 @@ body {
   font-family: 'Georgia', serif;
   font-size: clamp(1.6rem, 2.6vw, 2.1rem);
   font-weight: 400;
-  color: #FAF7F2;
+  color: #ffffff; /* Changed to pure white */
   letter-spacing: -0.5px;
   line-height: 1;
 }
 
+/* Keeps the "+" sign orange, if you want it white too, change this to #ffffff */
 .hero__stat-value span {
-  color: var(--accent-orange);
+  color: var(--surface);
   font-size: 0.75em;
   margin-left: 2px;
 }
@@ -434,8 +459,50 @@ body {
   font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(250, 247, 242, 0.7);
+  color: #ffffff; /* Changed to pure white */
   font-weight: 500;
+}
+
+/* Initial state: hidden and slightly pushed down */
+.hero__eyebrow,
+.hero__title,
+.hero__subtitle,
+.hero__actions,
+.hero__stats {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Visible state: fade in and slide up to normal position */
+.hero--visible .hero__eyebrow,
+.hero--visible .hero__title,
+.hero--visible .hero__subtitle,
+.hero--visible .hero__actions,
+.hero--visible .hero__stats {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delays so elements appear one after another */
+.hero--visible .hero__eyebrow {
+  transition-delay: 0.1s;
+}
+
+.hero--visible .hero__title {
+  transition-delay: 0.25s;
+}
+
+.hero--visible .hero__subtitle {
+  transition-delay: 0.4s;
+}
+
+.hero--visible .hero__actions {
+  transition-delay: 0.55s;
+}
+
+.hero--visible .hero__stats {
+  transition-delay: 0.7s;
 }
 
 /* Services.Home styling */
@@ -779,6 +846,44 @@ body {
   transform: none;
 }
 
+/* ANIMATIONS & TRANSITIONS FOR SERVICES SECTION */
+
+/* Initial hidden state */
+.services__header-left,
+.services__intro,
+.services__carousel-wrap,
+.services__dots {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Visible state applied by IntersectionObserver */
+.services--visible .services__header-left,
+.services--visible .services__intro,
+.services--visible .services__carousel-wrap,
+.services--visible .services__dots {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animation delays */
+.services--visible .services__header-left {
+  transition-delay: 0.1s;
+}
+
+.services--visible .services__intro {
+  transition-delay: 0.25s;
+}
+
+.services--visible .services__carousel-wrap {
+  transition-delay: 0.4s;
+}
+
+.services--visible .services__dots {
+  transition-delay: 0.55s;
+}
+
 /* ---------- Section ---------- */
 .dishes {
   background: var(--bg);
@@ -1117,6 +1222,56 @@ body {
   transform: translateX(3px);
 }
 
+/* ANIMATIONS & TRANSITIONS FOR DISH SECTION */
+
+/* Initial hidden state */
+.dishes__header-left,
+.dishes__intro,
+.dishes__tabs,
+.dishes__grid,
+.dishes__carousel-meta,
+.dishes__view-all {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Visible state applied by IntersectionObserver */
+.dishes--visible .dishes__header-left,
+.dishes--visible .dishes__intro,
+.dishes--visible .dishes__tabs,
+.dishes--visible .dishes__grid,
+.dishes--visible .dishes__carousel-meta,
+.dishes--visible .dishes__view-all {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animation delays */
+.dishes--visible .dishes__header-left {
+  transition-delay: 0.1s;
+}
+
+.dishes--visible .dishes__intro {
+  transition-delay: 0.25s;
+}
+
+.dishes--visible .dishes__tabs {
+  transition-delay: 0.4s;
+}
+
+.dishes--visible .dishes__grid {
+  transition-delay: 0.55s;
+}
+
+.dishes--visible .dishes__carousel-meta {
+  transition-delay: 0.7s;
+}
+
+.dishes--visible .dishes__view-all {
+  transition-delay: 0.85s;
+}
+
 /* ============================================
    OUR STORY — BASE
    ============================================ */
@@ -1405,6 +1560,40 @@ body {
   color: rgba(43, 36, 32, 0.62);
 }
 
+/* ANIMATIONS & TRANSITIONS  FOR STORY SECTION*/
+
+/* Initial hidden state */
+.story__images,
+.story__content,
+.story__stat {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Visible state applied by IntersectionObserver */
+.story--visible .story__images,
+.story--visible .story__content,
+.story--visible .story__stat {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animation delays */
+.story--visible .story__images {
+  transition-delay: 0.1s;
+}
+
+.story--visible .story__content {
+  transition-delay: 0.25s;
+}
+
+/* Stagger the stats individually */
+.story--visible .story__stat:nth-child(1) { transition-delay: 0.4s; }
+.story--visible .story__stat:nth-child(2) { transition-delay: 0.5s; }
+.story--visible .story__stat:nth-child(3) { transition-delay: 0.6s; }
+.story--visible .story__stat:nth-child(4) { transition-delay: 0.7s; }
+
 /* ============================================
    HOW WE WORK — BASE
    ============================================ */
@@ -1619,6 +1808,85 @@ body {
   color: rgba(43, 36, 32, 0.65);
   margin: 0;
 }
+
+/* ANIMATIONS & TRANSITIONS FOR PROCESS SECTION */
+
+/* Header fades up */
+.process__header {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.process--visible .process__header {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Base hidden state for timeline rows */
+.process__row {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Directional slide based on the side the row is on */
+.process__row--icon-left {
+  transform: translateX(-60px);
+}
+
+.process__row--icon-right {
+  transform: translateX(60px);
+}
+
+/* When the individual row enters the viewport, it gets this class */
+.process__row--visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Header fades up */
+.process__header {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.process--visible .process__header {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Base hidden state for timeline rows */
+.process__row {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 
+  Slide in from the side the icon is on.
+  Since 'icon-left' means the icon is on the left, it slides from the left (-60px).
+  If the icon is on the right, the text is on the left, but the row slides from the right (+60px).
+*/
+.process__row--icon-left {
+  transform: translateX(-60px);
+}
+
+.process__row--icon-right {
+  transform: translateX(60px);
+}
+
+/* Visible state */
+.process--visible .process__row {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Staggered delays for each step */
+.process--visible .process__row:nth-child(1) { transition-delay: 0.1s; }
+.process--visible .process__row:nth-child(2) { transition-delay: 0.25s; }
+.process--visible .process__row:nth-child(3) { transition-delay: 0.4s; }
+.process--visible .process__row:nth-child(4) { transition-delay: 0.55s; }
+.process--visible .process__row:nth-child(5) { transition-delay: 0.7s; }
 
 
 /* ============================================
@@ -1875,6 +2143,53 @@ body {
   transform: translateX(3px);
 }
 
+
+/* ANIMATIONS & TRANSITIONS FOR GALLERY SECTION*/
+
+/* Header animation (Top -> Down) */
+.gallery__header {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gallery--visible .gallery__header {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Base hidden state for all images */
+.gallery__item {
+  opacity: 0;
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Directional slide-in initial states */
+.gallery__item--left {
+  transform: translateX(-60px);
+}
+
+.gallery__item--right {
+  transform: translateX(60px);
+}
+
+.gallery__item--top {
+  transform: translateY(-60px);
+}
+
+.gallery__item--bottom {
+  transform: translateY(60px);
+}
+
+/* Visible state (returns to natural position) */
+.gallery__item--visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+
+
+
 /* ============================================
    TESTIMONIALS — BASE
    ============================================ */
@@ -2038,6 +2353,33 @@ body {
 /* ---------- Mobile helpers (hidden on desktop) ---------- */
 .testimonials__carousel-meta {
   display: none;
+}
+
+
+/* ANIMATIONS & TRANSITIONS FOR TESTIMONIALS SECTION */
+
+/* Initial hidden state */
+.testimonials__header,
+.testimonials__track {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Visible state */
+.testimonials--visible .testimonials__header,
+.testimonials--visible .testimonials__track {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays */
+.testimonials--visible .testimonials__header {
+  transition-delay: 0.1s;
+}
+
+.testimonials--visible .testimonials__track {
+  transition-delay: 0.3s;
 }
 
 
@@ -2248,6 +2590,45 @@ body {
 .faq__item--open .faq__answer {
   padding: 0 20px 16px;
 }
+
+/* ANIMATIONS & TRANSITIONS FOR FAQ ITEMS */
+
+/* Intro (Left side) initial state */
+.faq__intro {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Accordion items (Right side) initial state */
+.faq__item {
+  opacity: 0;
+  transform: translateY(20px);
+  /* Keep the existing hover/accordion transitions AND add the new entrance transitions */
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Visible state */
+.faq--visible .faq__intro,
+.faq--visible .faq__item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays */
+.faq--visible .faq__intro {
+  transition-delay: 0.1s;
+}
+
+/* Cascade the FAQ items down */
+.faq--visible .faq__item:nth-child(1) { transition-delay: 0.2s; }
+.faq--visible .faq__item:nth-child(2) { transition-delay: 0.3s; }
+.faq--visible .faq__item:nth-child(3) { transition-delay: 0.4s; }
+.faq--visible .faq__item:nth-child(4) { transition-delay: 0.5s; }
+.faq--visible .faq__item:nth-child(5) { transition-delay: 0.6s; }
+.faq--visible .faq__item:nth-child(6) { transition-delay: 0.7s; }
+
 
 /* ============================================
    CONTACT — BASE (dark, matching template)
@@ -2615,21 +2996,20 @@ body {
 }
 
 /* ---------- Brand block (Left) ---------- */
-.footer__brand {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 14px;
+/* Replace the old .footer__brand-logo font styles with these */
+.footer__brand-logo {
+  display: inline-block;
+  text-decoration: none;
+  margin-bottom: 10px; /* Gives breathing room before the tagline */
 }
 
-.footer__brand-logo {
-  font-family: 'Georgia', serif;
-  font-weight: 500;
-  font-size: 24px;
-  letter-spacing: -0.3px;
-  color: #FAF7F2;
-  text-decoration: none;
+/* New class to keep the logo clean and proportional */
+.footer__brand-logo-img {
+  height: 60px; /* Adjust this number if you want it bigger or smaller */
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
 }
 
 .footer__brand-tagline {
@@ -2766,4 +3146,46 @@ body {
   color: rgba(250, 247, 242, 0.55);
   margin: 0;
   text-align: center;
+}
+
+/* ANIMATIONS & TRANSITIONS FOR FOOTER */
+
+/* Initial Hidden States */
+.footer__brand {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer__columns {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer__bottom {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Visible States */
+.footer--visible .footer__brand,
+.footer--visible .footer__columns,
+.footer--visible .footer__bottom {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Staggered Delays */
+.footer--visible .footer__brand {
+  transition-delay: 0.1s;
+}
+
+.footer--visible .footer__columns {
+  transition-delay: 0.25s;
+}
+
+.footer--visible .footer__bottom {
+  transition-delay: 0.4s;
 }

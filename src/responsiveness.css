@@ -2,7 +2,7 @@
    NAVBAR RESPONSIVENESS
    ========================================================== */
 
-/* ---------- Desktop (min 901px) — center nav links ---------- */
+/* ---------- Desktop (min 901px) ---------- */
 @media (min-width: 901px) {
   .navbar__menu {
     position: absolute;
@@ -29,7 +29,7 @@
     display: block;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.5);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.35s ease;
@@ -42,7 +42,7 @@
     cursor: pointer;
   }
 
-  /* Drawer — dark glass with strong blur */
+  /* Drawer — Solid dark glass */
   .navbar__right {
     position: fixed;
     top: 0;
@@ -54,13 +54,12 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: stretch;
-    gap: 24px;
+    gap: 32px;
 
-    background: rgba(20, 15, 12, 0.75);
-    -webkit-backdrop-filter: blur(22px) saturate(170%);
-    backdrop-filter: blur(22px) saturate(170%);
-    border-left: 1px solid var(--navbar-border);
+    background: rgba(20, 15, 12, 0.95);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    backdrop-filter: blur(24px) saturate(160%);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: -8px 0 32px rgba(0, 0, 0, 0.35);
 
     transform: translateX(100%);
@@ -72,15 +71,17 @@
     transform: translateX(0);
   }
 
-  /* Menu — block layout */
+  /* Menu Links */
   .navbar__menu {
     position: static;
     transform: none;
-    display: block;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     padding: 0;
     margin: 0;
     list-style: none;
+    gap: 0;
   }
 
   .navbar__item {
@@ -98,8 +99,8 @@
     color: #ffffff;
     text-decoration: none;
     letter-spacing: 0.3px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    text-shadow: none; /* Removes shadow inside solid drawer */
     transition: color 0.2s ease, padding-left 0.2s ease;
   }
 
@@ -113,18 +114,33 @@
     padding-left: 6px;
   }
 
-  /* CTA — full width inside the drawer */
-  .navbar__cta {
+  /* Actions Row (Cart + CTA) */
+  .navbar__actions {
     display: flex;
+    align-items: center;
+    gap: 12px;
     width: 100%;
+    margin-top: auto; /* Pushes actions to the bottom if needed */
+  }
+
+  /* Cart */
+  .navbar__cart {
+    width: 48px;
+    height: 48px;
+    font-size: 16px;
+  }
+
+  /* CTA */
+  .navbar__cta {
+    flex-grow: 1;
+    display: flex;
     justify-content: center;
     font-size: 14px;
     padding: 14px 20px;
-    margin-top: 8px;
   }
-
-  .navbar__logo-text {
-    font-size: 17px;
+  
+  .navbar__logo-img {
+    height: 36px;
   }
 }
 
@@ -140,9 +156,12 @@
     font-size: 16px;
     padding: 14px 0;
   }
+  
+  .navbar__cart {
+    width: 44px;
+    height: 44px;
+  }
 }
-
-
 
 
 
@@ -219,11 +238,16 @@
     gap: 8px;
   }
 
+  .hero__subtitle {
+    font-size: 1.25rem;
+    margin-top: 15px;
+  }
+
   /* Bigger gap between subtitle and CTAs on mobile */
   .hero__actions {
     flex-direction: column;
     width: 100%;
-    margin-top: 40px;
+    margin-top: 20px;
     gap: 14px;
   }
 
@@ -234,11 +258,14 @@
 
   .hero__stats {
     gap: 28px;
-    margin-top: 40px;
+    margin-top: 30px;
   }
 
   .hero__stat-value {
-    font-size: 1.5rem;
+    font-size: 3rem;
+  }
+  .hero__stat-label {
+    font-size: 12px;
   }
 }
 
