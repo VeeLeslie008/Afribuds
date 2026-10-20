@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { CartContext } from './Cartcontext';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo-main.png'; // <-- Importing your logo here
+import { CartContext } from './Cartcontext';
+import logo from '../assets/logo-main.png'; // Ensure this path is correct
 
 const MOBILE_BREAKPOINT = 900;
 
@@ -80,13 +80,12 @@ function Navbar() {
     <nav className={navClass}>
       <div className="navbar__container">
         
-        {/* Logo */}
-        <a href="/" className="navbar__logo" onClick={closeMenu}>
-          {/* Using the imported logo variable here */}
+        {/* Main Navbar Logo */}
+        <Link to="/" className="navbar__logo" onClick={closeMenu}>
           <img src={logo} alt="AfriBuds" className="navbar__logo-img" />
-        </a>
+        </Link>
 
-        {/* Hamburger */}
+        {/* Hamburger (X icon) */}
         <button
           type="button"
           className={`navbar__hamburger ${isOpen ? 'active' : ''}`}
@@ -110,24 +109,32 @@ function Navbar() {
         {/* Drawer */}
         <div className={`navbar__right ${isOpen ? 'active' : ''}`}>
           
+          {/* NEW: Drawer Header with duplicated Logo */}
+          <div className="navbar__drawer-header">
+            <Link to="/" className="navbar__drawer-logo" onClick={closeMenu}>
+              <img src={logo} alt="AfriBuds" />
+            </Link>
+          </div>
+
+          {/* Links */}
           <ul className="navbar__menu">
             {navLinks.map(function (link) {
               return (
                 <li key={link.name} className="navbar__item">
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="navbar__link"
                     onClick={closeMenu}
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               );
             })}
           </ul>
 
+          {/* Actions (Cart + CTA) */}
           <div className="navbar__actions">
-            {/* Cart Icon */}
             <Link to="/cart" className="navbar__cart" onClick={closeMenu} aria-label="View Cart">
               <i className="fa-solid fa-cart-shopping" aria-hidden="true"></i>
               {cartCount > 0 && (
@@ -135,8 +142,6 @@ function Navbar() {
               )}
             </Link>
 
-            {/* CTA */}
-            {/* Change to Link for CTA */}
             <Link to="/book" className="navbar__cta" onClick={closeMenu}>
               Book a Consultation
               <i className="fa-solid fa-arrow-right navbar__cta-arrow" aria-hidden="true"></i>
