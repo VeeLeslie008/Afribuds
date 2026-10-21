@@ -22,6 +22,7 @@
   --navbar-border-solid: rgba(255, 255, 255, 0.14);
 }
 
+
 /* ---------- Base Navbar ---------- */
 .navbar {
   position: fixed;
@@ -75,13 +76,16 @@
   flex-shrink: 0;
 }
 
-/* Image styling to prevent stretching */
 .navbar__logo-img {
   height: 42px; 
   width: auto;
   max-width: 160px;
-  object-fit: contain; /* Keeps aspect ratio perfect */
+  object-fit: contain;
   display: block;
+}
+
+.navbar__drawer-logo {
+  display: none; /* Hidden on desktop */
 }
 
 /* ---------- Right Wrapper ---------- */
@@ -112,7 +116,6 @@
   transition: color 0.2s ease;
 }
 
-/* Keep text white on hover */
 .navbar__link:hover {
   color: #ffffff; 
 }
@@ -124,11 +127,10 @@
   bottom: -6px;
   width: 0;
   height: 2px;
-  background: #ffffff; /* Changed to white */
+  background: #ffffff; 
   transition: width 0.25s ease;
 }
 
-/* Show underline on hover OR when active */
 .navbar__link:hover::after,
 .navbar__link--active::after {
   width: 100%;
@@ -215,6 +217,11 @@
   color: #ffffff;
 }
 
+/* ---------- Mobile Controls (Hidden on Desktop) ---------- */
+.navbar__mobile-actions {
+  display: none;
+}
+
 /* ---------- Hamburger ---------- */
 .navbar__hamburger {
   display: none;
@@ -224,13 +231,11 @@
   font-size: 22px;
   cursor: pointer;
   padding: 0;
-  z-index: 1100;
   line-height: 1;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
   transition: color 0.2s ease;
 }
 
-/* Changed hamburger hover to white for consistency */
 .navbar__hamburger:hover {
   color: #ffffff;
   opacity: 0.8; 

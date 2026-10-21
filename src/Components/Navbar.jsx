@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { NavLink, Link } from 'react-router-dom'; // Import NavLink
+import { NavLink, Link } from 'react-router-dom';
 import { CartContext } from './Cartcontext';
 import logo from '../assets/logo.png';
 
@@ -9,7 +9,7 @@ const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   { name: 'Services', href: '/services' },
-  { name: 'Menu', href: '/menu' }, 
+  { name: 'Menu', href: '/menu' },
   { name: 'Reviews', href: '/reviews' },
   { name: 'Contact', href: '/contact' },
 ];
@@ -27,6 +27,7 @@ function Navbar() {
     setIsOpen(false);
   }
 
+  // Switch to solid glass when scrolling past hero
   useEffect(function () {
     function handleScroll() {
       const hero = document.getElementById('hero');
@@ -44,6 +45,7 @@ function Navbar() {
     };
   }, []);
 
+  // Lock page scroll when mobile drawer is open
   useEffect(
     function () {
       document.body.style.overflow = isOpen ? 'hidden' : 'unset';
@@ -60,6 +62,7 @@ function Navbar() {
     [isOpen]
   );
 
+  // Close drawer on resize to desktop
   useEffect(function () {
     function onResize() {
       if (window.innerWidth > MOBILE_BREAKPOINT) setIsOpen(false);
@@ -79,43 +82,50 @@ function Navbar() {
     <nav className={navClass}>
       <div className="navbar__container">
         
-        {/* Logo */}
+        {/* Main Logo */}
         <Link to="/" className="navbar__logo" onClick={closeMenu}>
           <img src={logo} alt="AfriBuds" className="navbar__logo-img" />
         </Link>
 
-        {/* Hamburger */}
-        <button
-          type="button"
-          className={`navbar__hamburger ${isOpen ? 'active' : ''}`}
-          onClick={toggleMenu}
-          aria-label="Toggle navigation"
-          aria-expanded={isOpen}
-        >
-          <i
-            className={`fa-solid ${isOpen ? 'fa-xmark' : 'fa-bars'}`}
-            aria-hidden="true"
-          ></i>
-        </button>
+        {/* Mobile Controls (Cart + Hamburger) - Only visible on mobile */}
+        <div className="navbar__mobile-actions">
+          <Link to="/cart" className="navbar__cart navbar__cart--mobile" onClick={closeMenu} aria-label="View Cart">
+            <i className="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+            {cartCount > 0 && (
+              <span className="navbar__cart-badge">{cartCount}</span>
+            )}
+          </Link>
 
-        {/* Backdrop */}
-        <div
-          className={`navbar__backdrop ${isOpen ? 'active' : ''}`}
-          onClick={closeMenu}
-          aria-hidden="true"
-        ></div>
+          <button
+            type="button"
+            className={`navbar__hamburger ${isOpen ? 'active' : ''}`}
+            onClick={toggleMenu}
+            aria-label="Toggle navigation"
+            aria-expanded={isOpen}
+          >
+            <i
+              className={`fa-solid ${isOpen ? 'fa-xmark' : 'fa-bars'}`}
+              aria-hidden="true"
+            ></i>
+          </button>
+        </div>
 
-        {/* Drawer */}
+        {/* Desktop Right Side / Mobile Drawer */}
         <div className={`navbar__right ${isOpen ? 'active' : ''}`}>
           
+          {/* Drawer Logo (Mobile only) */}
+          <Link to="/" className="navbar__drawer-logo" onClick={closeMenu}>
+            <img src={logo} alt="AfriBuds" className="navbar__logo-img" />
+          </Link>
+
+          {/* Menu Links */}
           <ul className="navbar__menu">
             {navLinks.map(function (link) {
               return (
                 <li key={link.name} className="navbar__item">
-                  {/* Use NavLink to automatically detect active route */}
                   <NavLink
                     to={link.href}
-                    end={link.href === '/'} // 'end' ensures Home is only active on exactly "/"
+                    end={link.href === '/'}
                     className={function ({ isActive }) {
                       return 'navbar__link' + (isActive ? ' navbar__link--active' : '');
                     }}
@@ -128,8 +138,9 @@ function Navbar() {
             })}
           </ul>
 
+          {/* Actions (Cart + CTA) - Cart is hidden on mobile inside drawer */}
           <div className="navbar__actions">
-            <Link to="/cart" className="navbar__cart" onClick={closeMenu} aria-label="View Cart">
+            <Link to="/cart" className="navbar__cart navbar__cart--desktop" onClick={closeMenu} aria-label="View Cart">
               <i className="fa-solid fa-cart-shopping" aria-hidden="true"></i>
               {cartCount > 0 && (
                 <span className="navbar__cart-badge">{cartCount}</span>
@@ -144,6 +155,13 @@ function Navbar() {
 
         </div>
       </div>
+
+      {/* Backdrop (Mobile only) */}
+      <div
+        className={`navbar__backdrop ${isOpen ? 'active' : ''}`}
+        onClick={closeMenu}
+        aria-hidden="true"
+      ></div>
     </nav>
   );
 }
