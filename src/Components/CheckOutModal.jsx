@@ -40,6 +40,26 @@ function CheckoutModal({ isOpen, onClose, total, cartItems, clearCart }) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // --- ADDED: LOCK BODY SCROLL WHEN MODAL IS OPEN ---
+  useEffect(function () {
+    const html = document.documentElement;
+    const body = document.body;
+
+    if (isOpen) {
+      html.style.overflow = 'hidden';
+      body.style.overflow = 'hidden';
+    } else {
+      html.style.overflow = '';
+      body.style.overflow = '';
+    }
+
+    return function () {
+      html.style.overflow = '';
+      body.style.overflow = '';
+    };
+  }, [isOpen]);
+  // ---------------------------------------------------
+
   // Filter banks based on search input
   const filteredBanks = NIGERIAN_BANKS.filter(function (bank) {
     return bank.toLowerCase().includes(bankSearch.toLowerCase());
@@ -92,7 +112,19 @@ function CheckoutModal({ isOpen, onClose, total, cartItems, clearCart }) {
 
   return (
     <div className="checkout-modal">
-      <div className="checkout-modal__overlay" onClick={step === 4 ? handleFinish : undefined}></div>
+      {/* UPDATED OVERLAY CLICK */}
+      <div 
+        className="checkout-modal__overlay" 
+        onClick={function () {
+          if (step !== 3) {
+            if (step === 4) {
+              handleFinish();
+            } else {
+              onClose();
+            }
+          }
+        }}
+      ></div>
       
       <div className="checkout-modal__content">
         {step !== 3 && (

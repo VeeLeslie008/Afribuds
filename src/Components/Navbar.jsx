@@ -45,22 +45,34 @@ function Navbar() {
     };
   }, []);
 
-  // Lock page scroll when mobile drawer is open
+  // --- UPDATED: Lock page scroll when mobile drawer is open (HTML + Body) ---
   useEffect(
     function () {
-      document.body.style.overflow = isOpen ? 'hidden' : 'unset';
+      const html = document.documentElement;
+      const body = document.body;
+
+      if (isOpen) {
+        html.style.overflow = 'hidden';
+        body.style.overflow = 'hidden';
+      } else {
+        html.style.overflow = '';
+        body.style.overflow = '';
+      }
+
       function onKey(e) {
         if (e.key === 'Escape') setIsOpen(false);
       }
       if (isOpen) window.addEventListener('keydown', onKey);
 
       return function () {
-        document.body.style.overflow = 'unset';
+        html.style.overflow = '';
+        body.style.overflow = '';
         window.removeEventListener('keydown', onKey);
       };
     },
     [isOpen]
   );
+  // -------------------------------------------------------------------------
 
   // Close drawer on resize to desktop
   useEffect(function () {

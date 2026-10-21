@@ -263,8 +263,8 @@ function PopularDishes() {
 
         <div className="dishes__carousel-meta">
           <p className="dishes__swipe-hint">
-            <i className="fa-solid fa-arrow-left" aria-hidden="true"></i>
             Swipe to explore
+            <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </p>
 
           <div className="dishes__dots" role="tablist" aria-label="Dishes">
