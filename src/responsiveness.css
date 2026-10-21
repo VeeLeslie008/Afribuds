@@ -266,9 +266,9 @@
   }
 
   .hero__title{
-    font-size: 3rem;
-    line-height: 1;
-    letter-spacing: -0.5px;
+    font-size: 2.5rem;
+    line-height: 1.08;
+    letter-spacing: -1px;
     margin-bottom: 8px;
   }
 
