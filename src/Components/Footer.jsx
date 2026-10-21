@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { footerColumns, footerSocials, footerBrand } from '../Data/Data';
-import logo from '../assets/logo-main.png'; // <-- IMPORT YOUR LOGO HERE
+import logo from '../assets/logo.png'; // <-- IMPORT YOUR LOGO HERE
 
 function Footer() {
   const year = new Date().getFullYear();

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom'; // Import NavLink
 import { CartContext } from './Cartcontext';
-import logo from '../assets/logo-main.png'; // Ensure this path is correct
+import logo from '../assets/logo.png';
 
 const MOBILE_BREAKPOINT = 900;
 
@@ -9,8 +9,7 @@ const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   { name: 'Services', href: '/services' },
-  { name: 'Menu', href: '/menu' },
-  { name: 'Gallery', href: '/gallery' },
+  { name: 'Menu', href: '/menu' }, 
   { name: 'Reviews', href: '/reviews' },
   { name: 'Contact', href: '/contact' },
 ];
@@ -80,12 +79,12 @@ function Navbar() {
     <nav className={navClass}>
       <div className="navbar__container">
         
-        {/* Main Navbar Logo */}
+        {/* Logo */}
         <Link to="/" className="navbar__logo" onClick={closeMenu}>
           <img src={logo} alt="AfriBuds" className="navbar__logo-img" />
         </Link>
 
-        {/* Hamburger (X icon) */}
+        {/* Hamburger */}
         <button
           type="button"
           className={`navbar__hamburger ${isOpen ? 'active' : ''}`}
@@ -109,31 +108,26 @@ function Navbar() {
         {/* Drawer */}
         <div className={`navbar__right ${isOpen ? 'active' : ''}`}>
           
-          {/* NEW: Drawer Header with duplicated Logo */}
-          <div className="navbar__drawer-header">
-            <Link to="/" className="navbar__drawer-logo" onClick={closeMenu}>
-              <img src={logo} alt="AfriBuds" />
-            </Link>
-          </div>
-
-          {/* Links */}
           <ul className="navbar__menu">
             {navLinks.map(function (link) {
               return (
                 <li key={link.name} className="navbar__item">
-                  <Link
+                  {/* Use NavLink to automatically detect active route */}
+                  <NavLink
                     to={link.href}
-                    className="navbar__link"
+                    end={link.href === '/'} // 'end' ensures Home is only active on exactly "/"
+                    className={function ({ isActive }) {
+                      return 'navbar__link' + (isActive ? ' navbar__link--active' : '');
+                    }}
                     onClick={closeMenu}
                   >
                     {link.name}
-                  </Link>
+                  </NavLink>
                 </li>
               );
             })}
           </ul>
 
-          {/* Actions (Cart + CTA) */}
           <div className="navbar__actions">
             <Link to="/cart" className="navbar__cart" onClick={closeMenu} aria-label="View Cart">
               <i className="fa-solid fa-cart-shopping" aria-hidden="true"></i>

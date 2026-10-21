@@ -8,6 +8,7 @@ import Testimonials from '../Components/Testimonials';
 import Faq from '../Components/Faq';
 import Contact from '../Components/contact';
 import Footer from '../Components/Footer';
+import BookingCta from '../Components/Bookingcta';
 
 function Home(){
     return(
@@ -22,6 +23,7 @@ function Home(){
             <Testimonials/>
             <Faq/>
             <Contact/>
+            <BookingCta/>
             <Footer/>
         </>
     );

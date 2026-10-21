@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useContext } from 'react';
 import { menuDishes } from '../Data/Products';
 import { CartContext } from '../Components/Cartcontext';
+import Footer from '../Components/Footer';
 
 // --- Sub-component for individual Dish Cards ---
 function MenuCard({ dish }) {
@@ -235,6 +236,7 @@ function Menu() {
   };
 
   return (
+    <>
     <section className="menu-page">
       <div className="menu-page__container">
         
@@ -282,6 +284,10 @@ function Menu() {
 
       </div>
     </section>
+
+    <Footer />
+  </>
+          
   );
 }
 

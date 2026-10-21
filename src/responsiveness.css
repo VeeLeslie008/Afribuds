@@ -293,6 +293,20 @@
     gap: 24px;
   }
 
+  .hero__title{
+    font-size: clamp(1.75rem, 6vw, 2.2rem);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+
+  .hero__subtitle {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-top: 10px;
+    max-width: 95%;
+  }
+
   .hero__eyebrow {
     font-size: 10px;
     padding: 8px 16px;
@@ -1714,6 +1728,70 @@
 
   .contact__success-back {
     font-size: 12.5px;
+  }
+}
+
+/* ==========================================================
+   BOOKING CTA BANNER — RESPONSIVENESS
+   ========================================================== */
+
+/* ---------- Tablet (max 1024px) ---------- */
+@media (max-width: 1024px) {
+  .cta-banner {
+    min-height: 65vh;
+  }
+}
+
+/* ---------- Phones (max 700px) ---------- */
+@media (max-width: 700px) {
+  .cta-banner {
+    min-height: 75vh; /* Taller to fit stacked content comfortably */
+    padding: 80px 0;
+  }
+
+  .cta-banner__container {
+    padding: 0 20px;
+  }
+
+  .cta-banner__eyebrow {
+    font-size: 10px;
+    padding: 7px 14px;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .cta-banner__title {
+    font-size: clamp(1.9rem, 8vw, 2.5rem);
+    margin-bottom: 16px;
+    line-height: 1.15;
+  }
+
+  .cta-banner__text {
+    font-size: 14px;
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  /* Stack buttons vertically */
+  .cta-banner__actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cta-banner__btn {
+    width: 100%;
+    padding: 15px 24px;
+  }
+}
+
+/* ---------- Small phones (max 420px) ---------- */
+@media (max-width: 420px) {
+  .cta-banner__title {
+    font-size: clamp(1.7rem, 7vw, 2rem);
+  }
+  
+  .cta-banner__text {
+    font-size: 13px;
   }
 }
 
