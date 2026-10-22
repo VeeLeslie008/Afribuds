@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { processSteps } from '../Data/Data';
 
-// --- Sub-component for individual timeline rows ---
+// Sub-component for individual timeline rows
 function ProcessRow({ step }) {
   const rowRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);

@@ -13,8 +13,8 @@ function CountUp({ end, decimals, suffix, startAnimation }) {
 
       function animate(now) {
         if (!startTime) startTime = now;
-        const progress = Math.min((now - startTime) / 2000, 1); // 2000ms duration
-        const eased = 1 - Math.pow(1 - progress, 3); // Ease-out cubic
+        const progress = Math.min((now - startTime) / 2000, 1); 
+        const eased = 1 - Math.pow(1 - progress, 3);
 
         setValue(end * eased);
 
@@ -53,11 +53,11 @@ function Hero() {
           entries.forEach(function (entry) {
             if (entry.isIntersecting) {
               setIsVisible(true);
-              observer.disconnect(); // Stop observing once animated in
+              observer.disconnect(); 
             }
           });
         },
-        { threshold: 0.1 } // Triggers when 10% of the hero is visible
+        { threshold: 0.1 } 
       );
 
       if (heroRef.current) {
