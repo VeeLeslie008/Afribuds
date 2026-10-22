@@ -13,13 +13,13 @@ function ProcessRow({ step }) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            observer.disconnect(); // Stop observing once animated in
+            observer.disconnect();
           }
         });
       },
       { 
         threshold: 0.2,
-        rootMargin: '0px 0px -50px 0px' // Triggers slightly before it fully hits the viewport
+        rootMargin: '0px 0px -50px 0px'
       }
     );
 
