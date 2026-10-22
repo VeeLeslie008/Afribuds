@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { footerColumns, footerSocials, footerBrand } from '../Data/Data';
-import logo from '../assets/logo.png'; // <-- IMPORT YOUR LOGO HERE
+import logo from '../assets/logo.png';
 
 function Footer() {
   const year = new Date().getFullYear();
@@ -30,22 +30,20 @@ function Footer() {
       observer.disconnect();
     };
   }, []);
-  // ----------------------------------------------
 
   return (
     <footer
       className={'footer' + (isVisible ? ' footer--visible' : '')}
       ref={footerRef}
     >
-      {/* ---------- Main footer ---------- */}
+      {/* Main footer */}
       <div className="footer__main">
         <div className="footer__container">
           <div className="footer__top">
             
-            {/* ---------- Brand block (Left) ---------- */}
+            {/* Brand block (Left) */}
             <div className="footer__brand">
               <a href="/" className="footer__brand-logo">
-                {/* REPLACED TEXT WITH LOGO IMAGE */}
                 <img 
                   src={logo} 
                   alt={footerBrand.name} 
@@ -92,7 +90,7 @@ function Footer() {
               </div>
             </div>
 
-            {/* ---------- Link columns (Right) ---------- */}
+            {/* Link columns (Right) */}
             <div className="footer__columns">
               {footerColumns.map(function (column) {
                 return (
@@ -119,7 +117,7 @@ function Footer() {
         </div>
       </div>
 
-      {/* ---------- Bottom bar (Centered) ---------- */}
+      {/* Bottom bar (Centered) */}
       <div className="footer__bottom">
         <div className="footer__container footer__container--bottom">
           <p className="footer__copy">

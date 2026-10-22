@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
 import { galleryItems } from '../Data/Data';
 
-// --- Sub-component for individual Gallery Images ---
+// Sub-component for individual Gallery Images
 function GalleryItem({ item, index }) {
   const itemRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
-  // Create a repeating array of directions: left, bottom, right, top
+  // Repeating array of directions: left, bottom, right, top
   const directions = ['left', 'bottom', 'right', 'top'];
   const direction = directions[index % directions.length];
 
@@ -16,13 +16,13 @@ function GalleryItem({ item, index }) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            observer.disconnect(); // Only animate once
+            observer.disconnect();
           }
         });
       },
       { 
         threshold: 0.15,
-        rootMargin: '0px 0px -40px 0px' // Triggers slightly before it fully hits the viewport
+        rootMargin: '0px 0px -40px 0px' 
       }
     );
 
@@ -58,9 +58,9 @@ function GalleryItem({ item, index }) {
   );
 }
 
-// --- Main Gallery Section ---
+// Main Gallery Section 
 function Gallery() {
-  // Still observe the header for its own separate animation
+
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -114,14 +114,14 @@ function Gallery() {
           </div>
         </header>
 
-        {/* ---------- Mosaic Grid ---------- */}
+        {/* Mosaic Grid */}
         <div className="gallery__grid">
           {galleryItems.map(function (item, index) {
             return <GalleryItem key={item.id} item={item} index={index} />;
           })}
         </div>
 
-        {/* ---------- CTA ---------- */}
+        {/* CTA Buttons*/}
         <div className="gallery__cta-row">
           <a href="/gallery" className="gallery__cta">
             Explore Full Gallery
