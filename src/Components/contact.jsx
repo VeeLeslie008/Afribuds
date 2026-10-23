@@ -104,7 +104,7 @@ function Contact() {
                     id="contact-first"
                     type="text"
                     className="contact__input"
-                    placeholder="John"
+                    placeholder="Your name"
                     value={form.firstName}
                     onChange={handleChange('firstName')}
                     required
@@ -120,7 +120,7 @@ function Contact() {
                       id="contact-email"
                       type="email"
                       className="contact__input"
-                      placeholder="you@example.com"
+                      placeholder="afribuds@gmail.com"
                       value={form.email}
                       onChange={handleChange('email')}
                       required
@@ -135,7 +135,7 @@ function Contact() {
                       id="contact-phone"
                       type="tel"
                       className="contact__input"
-                      placeholder="(123) 456-7890"
+                      placeholder="Phone number"
                       value={form.phone}
                       onChange={handleChange('phone')}
                     />

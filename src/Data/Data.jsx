@@ -401,14 +401,14 @@ export const contactInfo = [
     id: 'email',
     icon: 'fa-solid fa-envelope',
     label: 'Email',
-    value: 'hello@afribuds.com',
+    value: 'afribuds@gmail.com',
     href: 'mailto:veeleslie008@gmail.com',
   },
   {
     id: 'instagram',
     icon: 'fa-brands fa-instagram',
     label: 'Instagram',
-    value: '@afribuds',
+    value: 'Afribuds Kitchen',
     href: 'https://instagram.com/afribuds',
   },
   {
@@ -429,7 +429,7 @@ export const contactInfo = [
     id: 'twitter',
     icon: 'fa-brands fa-x-twitter',
     label: 'X / Twitter',
-    value: '@afribuds',
+    value: 'Afribuds Kitchen',
     href: 'https://x.com/afribuds',
   },
 ];
