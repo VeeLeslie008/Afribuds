@@ -6,7 +6,7 @@
   background: var(--bg);
   color: var(--text);
   padding: 150px 0 60px;
-  min-height: 100vh;
+  min-height: 60vh;
 }
 
 .booking-page__container {
@@ -358,7 +358,7 @@
 /* ---------- Phones (max 700px) ---------- */
 @media (max-width: 700px) {
   .booking-page {
-    padding: 120px 0 80px;
+    padding: 120px 0 50px;
   }
 
   .booking-page__container {
