@@ -67,7 +67,7 @@ function BookingCta() {
             </Link>
 
             <a 
-              href="https://wa.me/2348000000000" // Replace with actual Afribuds WhatsApp number
+              href="https://wa.me/2348082299961"
               target="_blank" 
               rel="noreferrer" 
               className="cta-banner__btn cta-banner__btn--ghost"

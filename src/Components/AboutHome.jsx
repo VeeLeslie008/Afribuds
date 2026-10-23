@@ -170,15 +170,6 @@ function AboutHome() {
                     <p className="services__card-text">{service.text}</p>
 
                     <div className="services__card-footer">
-                      <div className="services__card-price">
-                        <span className="services__card-price-label">
-                          From
-                        </span>
-                        <span className="services__card-price-value">
-                          {service.priceFrom}
-                          <small>{service.priceUnit}</small>
-                        </span>
-                      </div>
 
                       <a href="/services" className="services__card-cta">
                         Learn more

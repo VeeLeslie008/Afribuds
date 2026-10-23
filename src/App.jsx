@@ -1,10 +1,12 @@
 import { BrowserRouter,Route, Routes, Navigate } from 'react-router-dom';
 import { CartProvider } from './Components/Cartcontext';
+import Services from './Pages/Services';
 import Home from './Pages/Home';
 import About from './Pages/About';
 import Navbar from './Components/Navbar';
 import CartPage from './Pages/CartPage';
 import Menu from './Pages/Menu';
+import Booking from './Pages/Booking';
 import './App.css';
 import './index.css';
 
@@ -19,6 +21,8 @@ function App(){
                     <Route path="/about" element={<About />} />
                     <Route path="/cart" element={<CartPage />} />
                     <Route path="/menu" element={<Menu />} />
+                    <Route path="/services" element={<Services />} />
+                    <Route path="/book" element={<Booking />} />
                 </Routes>
             </BrowserRouter>
         </CartProvider>
