@@ -174,12 +174,12 @@ function Contact() {
       <div className="contact__map-wrap">
         <div className="contact__map">
           <iframe
-            title="AfriBuds location — Uyo"
-            src="https://www.google.com/maps?q=Eket+Akwa+Ibom&z=13&output=embed"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
-          ></iframe>
+              title="AfriBuds location — Uyo"
+              src="https://www.google.com/maps?q=Uyo+Akwa+Ibom&z=13&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            ></iframe>
         </div>
       </div>
     </section>
