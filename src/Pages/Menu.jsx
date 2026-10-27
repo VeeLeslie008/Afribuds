@@ -284,8 +284,6 @@ function Menu() {
 
       </div>
     </section>
-
-    <Footer />
   </>
           
   );

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-// Comprehensive list of Nigerian Banks (including digital banks)
+// Banks in Nigeria
 const NIGERIAN_BANKS = [
   "Access Bank", "Citibank", "Ecobank Nigeria", "Fidelity Bank", "First Bank of Nigeria",
   "First City Monument Bank (FCMB)", "Globus Bank", "Guaranty Trust Bank (GTBank)", 
@@ -17,6 +17,8 @@ function CheckoutModal({ isOpen, onClose, total, cartItems, clearCart }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    address: '',
+    city: '',
     bank: '',
     accountNo: '',
     pin: '',
@@ -24,7 +26,7 @@ function CheckoutModal({ isOpen, onClose, total, cartItems, clearCart }) {
   const [otp, setOtp] = useState('');
   const [receipt, setReceipt] = useState(null);
 
-  // --- Bank Search Dropdown State ---
+  // Bank Search Dropdown State
   const [bankSearch, setBankSearch] = useState('');
   const [showBankList, setShowBankList] = useState(false);
   const bankDropdownRef = useRef(null);
@@ -40,7 +42,7 @@ function CheckoutModal({ isOpen, onClose, total, cartItems, clearCart }) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // --- ADDED: LOCK BODY SCROLL WHEN MODAL IS OPEN ---
+  // --- LOCK BODY SCROLL WHEN MODAL IS OPEN ---
   useEffect(function () {
     const html = document.documentElement;
     const body = document.body;
@@ -58,7 +60,6 @@ function CheckoutModal({ isOpen, onClose, total, cartItems, clearCart }) {
       body.style.overflow = '';
     };
   }, [isOpen]);
-  // ---------------------------------------------------
 
   // Filter banks based on search input
   const filteredBanks = NIGERIAN_BANKS.filter(function (bank) {
@@ -73,12 +74,11 @@ function CheckoutModal({ isOpen, onClose, total, cartItems, clearCart }) {
       alert("Please select a bank from the dropdown.");
       return;
     }
-    setStep(2); // Move to OTP
+    setStep(2);
   }
 
   function handleOtpSubmit(e) {
     e.preventDefault();
-    setStep(3); // Processing
 
     setTimeout(() => {
       if (otp === '123456') {
@@ -103,7 +103,7 @@ function CheckoutModal({ isOpen, onClose, total, cartItems, clearCart }) {
   function handleFinish() {
     clearCart();
     setStep(1);
-    setFormData({ name: '', email: '', bank: '', accountNo: '', pin: '' });
+    setFormData({ name: '', email: '', address: '', city: '', bank: '', accountNo: '', pin: '' });
     setBankSearch('');
     setOtp('');
     setReceipt(null);
@@ -112,7 +112,6 @@ function CheckoutModal({ isOpen, onClose, total, cartItems, clearCart }) {
 
   return (
     <div className="checkout-modal">
-      {/* UPDATED OVERLAY CLICK */}
       <div 
         className="checkout-modal__overlay" 
         onClick={function () {
@@ -137,18 +136,31 @@ function CheckoutModal({ isOpen, onClose, total, cartItems, clearCart }) {
         {step === 1 && (
           <div className="checkout-modal__step">
             <h2 className="checkout-modal__title">Payment Details</h2>
-            <p className="checkout-modal__subtitle">Securely enter your bank information to proceed.</p>
+            <p className="checkout-modal__subtitle">Securely enter your delivery and bank information to proceed.</p>
             
             <form onSubmit={handleDetailSubmit} className="checkout-modal__form">
               <div className="checkout-modal__field">
                 <label>Full Name</label>
                 <input type="text" required placeholder="John Doe" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
               </div>
+              
               <div className="checkout-modal__field">
                 <label>Email Address</label>
                 <input type="email" required placeholder="john@example.com" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} />
               </div>
+
+              {/* Added Delivery Address and City */}
+              <div className="checkout-modal__field">
+                <label>Delivery Address</label>
+                <input type="text" required placeholder="12 Oron Road" value={formData.address} onChange={(e) => setFormData({...formData, address: e.target.value})} />
+              </div>
+
+              <div className="checkout-modal__field">
+                <label>City</label>
+                <input type="text" required placeholder="Uyo" value={formData.city} onChange={(e) => setFormData({...formData, city: e.target.value})} />
+              </div>
               
+              {/* Bank & Account Number Row */}
               <div className="checkout-modal__row">
                 {/* Custom Searchable Bank Selector */}
                 <div className="checkout-modal__field" ref={bankDropdownRef}>

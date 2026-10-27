@@ -1,9 +1,13 @@
-import Navbar from '../Components/Navbar';
+import AboutContent from '../Components/AboutPage';
+import BookingCta from '../Components/Bookingcta';
+import Testimonials from '../Components/Testimonials';
 
 function About(){
     return(
         <>
-            <Navbar/>
+            <AboutContent/>
+            <Testimonials/>
+            <BookingCta/>
         </>
     );
 }

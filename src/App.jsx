@@ -9,6 +9,8 @@ import Menu from './Pages/Menu';
 import Booking from './Pages/Booking';
 import './App.css';
 import './index.css';
+import Footer from './Components/Footer';
+import ContactPage from './Pages/ContactPage'
 
 function App(){
     
@@ -23,7 +25,9 @@ function App(){
                     <Route path="/menu" element={<Menu />} />
                     <Route path="/services" element={<Services />} />
                     <Route path="/book" element={<Booking />} />
+                    <Route path="/contact" element={<ContactPage />} />
                 </Routes>
+                <Footer/>
             </BrowserRouter>
         </CartProvider>
     );
