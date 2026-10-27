@@ -6,8 +6,7 @@ import HowWeWork from '../Components/HowItWorks';
 import Gallery from '../Components/Gallery';
 import Testimonials from '../Components/Testimonials';
 import Faq from '../Components/Faq';
-import Contact from '../Components/Contact';
-import Footer from '../Components/Footer';
+import Contact from '../Components/contact';
 import BookingCta from '../Components/Bookingcta';
 
 function Home(){
