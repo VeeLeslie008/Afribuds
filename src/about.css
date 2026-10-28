@@ -386,11 +386,11 @@
 /* ---------- Phones (max-width: 768px) ---------- */
 @media (max-width: 768px) {
   .about-hero {
-    height: 350px;
+    height: 450px;
+    padding-top: 48px;
     margin-bottom: 48px;
   }
 
-  /* --- HERO TEXT FIX --- */
   .about-hero__content {
     width: 70%; 
     margin: 0 auto; 
@@ -403,7 +403,7 @@
   }
 
   .about-hero__subtitle {
-    font-size: 13px;
+    font-size: 1.25rem;
     line-height: 1.6;
   }
 
@@ -411,7 +411,6 @@
     padding: 0 20px;
   }
 
-  /* Collage - Stack to 1 column */
   .about-collage {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -434,27 +433,27 @@
     justify-content: center;
   }
 
-  /* --- STATS BAR (2x2 GRID ON MOBILE) --- */
+ 
   .about-stats {
     padding: 40px 0;
     margin-bottom: 64px;
   }
 
   .about-stats__container {
-    grid-template-columns: repeat(2, 1fr); /* Keeps it 2x2 */
-    gap: 30px 16px; /* Row gap, Column gap */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 16px; 
   }
 
   .about-stats__item {
-    flex-direction: column; /* Stacks icon on top of text */
+    flex-direction: column; 
     align-items: center;
     text-align: center;
-    border-right: none; /* Reset */
-    border-bottom: none; /* Reset */
+    border-right: none; 
+    border-bottom: none; 
     padding-bottom: 0;
   }
 
-  /* Re-apply the middle borders for the 2x2 grid */
+  
   .about-stats__item:nth-child(1),
   .about-stats__item:nth-child(2) {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -466,7 +465,7 @@
     border-right: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  /* Make icons and text slightly smaller to fit the halves */
+  
   .about-stats__icon {
     width: 44px;
     height: 44px;
@@ -482,7 +481,7 @@
     font-size: 12px;
   }
 
-  /* Mission - Stack to 1 column */
+  
   .about-mission {
     grid-template-columns: 1fr;
     gap: 40px;
