@@ -1,0 +1,167 @@
+/* ============================================
+   PRIVACY PAGE — BASE
+   ============================================ */
+
+.privacy-page {
+  background: var(--bg);
+  color: var(--text);
+  padding: 160px 0 100px;
+  min-height: 100vh;
+}
+
+.privacy-page__container {
+  max-width: 800px; /* Narrower width for better reading */
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ---------- Animations ---------- */
+.privacy-page__header,
+.privacy-page__content {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.privacy-page--visible .privacy-page__header {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.privacy-page--visible .privacy-page__content {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.25s;
+}
+
+/* ---------- Header ---------- */
+.privacy-page__header {
+  text-align: center;
+  margin-bottom: 64px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(43, 36, 32, 0.1);
+}
+
+.privacy-page__eyebrow {
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--accent-orange);
+  margin: 0 0 16px;
+}
+
+.privacy-page__title {
+  font-family: 'Georgia', serif;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  margin: 0 0 12px;
+}
+
+.privacy-page__last-updated {
+  font-size: 13px;
+  color: rgba(43, 36, 32, 0.5);
+  margin: 0;
+}
+
+/* ---------- Content ---------- */
+.privacy-page__intro {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(43, 36, 32, 0.8);
+  margin: 0 0 40px;
+  font-weight: 500;
+}
+
+.privacy-page__section {
+  margin-bottom: 40px;
+}
+
+.privacy-page__section-title {
+  font-family: 'Georgia', serif;
+  font-weight: 500;
+  font-size: 20px;
+  margin: 0 0 16px;
+  color: var(--text);
+}
+
+.privacy-page__text {
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(43, 36, 32, 0.7);
+  margin: 0 0 16px;
+}
+
+.privacy-page__list {
+  padding-left: 20px;
+  margin: 0 0 16px;
+}
+
+.privacy-page__list li {
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(43, 36, 32, 0.7);
+  margin-bottom: 8px;
+}
+
+.privacy-page__list li strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.privacy-page__link {
+  color: var(--accent-orange);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.privacy-page__link:hover {
+  color: #cf5517;
+  text-decoration: underline;
+}
+
+
+/* ==========================================================
+   PRIVACY PAGE — RESPONSIVENESS
+   ========================================================== */
+
+/* ---------- Phones (max-width: 768px) ---------- */
+@media (max-width: 768px) {
+  .privacy-page {
+    padding: 120px 0 60px;
+  }
+
+  .privacy-page__container {
+    padding: 0 20px;
+  }
+
+  .privacy-page__header {
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+  }
+
+  .privacy-page__title {
+    font-size: clamp(2rem, 7vw, 2.5rem);
+  }
+
+  .privacy-page__intro {
+    font-size: 15px;
+  }
+
+  .privacy-page__section {
+    margin-bottom: 32px;
+  }
+
+  .privacy-page__section-title {
+    font-size: 18px;
+  }
+
+  .privacy-page__text,
+  .privacy-page__list li {
+    font-size: 14px;
+  }
+}

@@ -92,7 +92,7 @@ function CheckoutModal({ isOpen, onClose, total, cartItems, clearCart }) {
           total: total,
           items: cartItems,
         });
-        setStep(4); // Receipt
+        setStep(4);
       } else {
         alert('Invalid OTP. Please enter 123456 for this demo.');
         setStep(2);
@@ -141,15 +141,14 @@ function CheckoutModal({ isOpen, onClose, total, cartItems, clearCart }) {
             <form onSubmit={handleDetailSubmit} className="checkout-modal__form">
               <div className="checkout-modal__field">
                 <label>Full Name</label>
-                <input type="text" required placeholder="John Doe" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
+                <input type="text" required placeholder="Your name" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
               </div>
               
               <div className="checkout-modal__field">
                 <label>Email Address</label>
-                <input type="email" required placeholder="john@example.com" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} />
+                <input type="email" required placeholder="afribuds@gmail.com" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} />
               </div>
 
-              {/* Added Delivery Address and City */}
               <div className="checkout-modal__field">
                 <label>Delivery Address</label>
                 <input type="text" required placeholder="12 Oron Road" value={formData.address} onChange={(e) => setFormData({...formData, address: e.target.value})} />
@@ -211,11 +210,12 @@ function CheckoutModal({ isOpen, onClose, total, cartItems, clearCart }) {
 
               <div className="checkout-modal__field">
                 <label>Card PIN</label>
-                <input type="password" required placeholder="••••" maxLength="4" value={formData.pin} onChange={(e) => setFormData({...formData, pin: e.target.value})} />
+                <input type="password" required placeholder="Your Card Pin" maxLength="4" value={formData.pin} onChange={(e) => setFormData({...formData, pin: e.target.value})} />
               </div>
 
+              {/* UPDATED TO NAIRA */}
               <button type="submit" className="checkout-modal__btn">
-                Pay ${total.toFixed(2)}
+                Pay ₦{total.toLocaleString()}
                 <i className="fa-solid fa-arrow-right"></i>
               </button>
             </form>
@@ -240,7 +240,7 @@ function CheckoutModal({ isOpen, onClose, total, cartItems, clearCart }) {
                   type="text" 
                   className="checkout-modal__otp-input"
                   required 
-                  placeholder="000000" 
+                  placeholder="123456" 
                   maxLength="6" 
                   value={otp} 
                   onChange={(e) => setOtp(e.target.value)} 
@@ -286,15 +286,19 @@ function CheckoutModal({ isOpen, onClose, total, cartItems, clearCart }) {
                   return (
                     <div key={item.id} className="checkout-modal__receipt-item">
                       <span>{item.quantity}x {item.name}</span>
-                      <span>${(parseFloat(item.price.replace('$', '')) * item.quantity).toFixed(2)}</span>
+                      {/* UPDATED TO NAIRA AND FIXED MATH */}
+                      <span>
+                        ₦{(parseFloat(item.price.replace(/[^0-9.]/g, '')) * item.quantity).toLocaleString()}
+                      </span>
                     </div>
                   );
                 })}
               </div>
 
+              {/* UPDATED TO NAIRA */}
               <div className="checkout-modal__receipt-total">
                 <span>Total Paid</span>
-                <span>${receipt.total.toFixed(2)}</span>
+                <span>₦{receipt.total.toLocaleString()}</span>
               </div>
             </div>
 

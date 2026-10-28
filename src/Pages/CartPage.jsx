@@ -58,7 +58,7 @@ function CartPage() {
                       </button>
                     </div>
                     <div className="cart-page__item-total">
-                      ${itemTotal.toFixed(2)}
+                      ₦{itemTotal.toLocaleString()}
                     </div>
                     <button type="button" className="cart-page__remove" onClick={() => removeFromCart(item.id)}>
                       <i className="fa-solid fa-trash"></i>
@@ -73,7 +73,7 @@ function CartPage() {
             <h2 className="cart-page__summary-title">Order Summary</h2>
             <div className="cart-page__summary-row">
               <span>Subtotal</span>
-              <span>${subtotal.toFixed(2)}</span>
+              <span>₦{subtotal.toLocaleString()}</span>
             </div>
             <div className="cart-page__summary-row">
               <span>Delivery</span>
@@ -81,7 +81,7 @@ function CartPage() {
             </div>
             <div className="cart-page__summary-total">
               <span>Total</span>
-              <span>${subtotal.toFixed(2)}</span>
+              <span>₦{subtotal.toLocaleString()}</span>
             </div>
 
             {/* Trigger Modal Here */}

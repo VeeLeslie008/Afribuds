@@ -50,7 +50,7 @@ export const dishes = [
     tag: 'Signature',
     description:
       'Slow-cooked long-grain rice in a rich tomato-pepper base, finished with smoked paprika butter and grilled chicken.',
-    price: '$28',
+    price: '₦2,500', 
     rating: 4.9,
     reviews: 214,
     image:
@@ -63,7 +63,7 @@ export const dishes = [
     tag: 'Spicy',
     description:
       'Spicy grilled meat coated in traditional yaji seasoning, served hot with fresh onions and tomatoes, and loved as a Nigerian street food favourite.',
-    price: '$16',
+    price: '₦2,000', 
     rating: 4.8,
     reviews: 187,
     image:
@@ -76,7 +76,7 @@ export const dishes = [
     tag: 'Classic',
     description:
       'A rich Nigerian soup made from ground melon seeds, leafy vegetables, assorted meats, and flavorful spices, best enjoyed with pounded yam or fufu.',
-    price: '$24',
+    price: '₦3,400', 
     rating: 4.9,
     reviews: 156,
     image:
@@ -89,7 +89,7 @@ export const dishes = [
     tag: 'Spicy',
     description:
       'A delicious Igbo delicacy made from tender cow foot mixed with spicy palm oil sauce, utazi leaves, and aromatic traditional spices.',
-    price: '$12',
+    price: '₦4,000', 
     rating: 4.7,
     reviews: 302,
     image:
@@ -102,7 +102,7 @@ export const dishes = [
     tag: 'Popular',
     description:
       'A soft, savoury Nigerian delicacy made from blended beans, peppers, onions, and spices, steamed to perfection for a delicious and nutritious meal.',
-    price: '$14',
+    price: '₦1,000', 
     rating: 4.9,
     reviews: 98,
     image:
@@ -115,7 +115,7 @@ export const dishes = [
     tag: 'Sweet',
     description:
       'A tasty assortment of Nigerian snacks, including puff-puff, samosas, spring rolls, and spicy meat pies, perfect for parties and special occasions.',
-    price: '$10',
+    price: '₦1,500',
     rating: 4.8,
     reviews: 241,
     image:

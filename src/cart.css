@@ -245,9 +245,36 @@
 }
 
 
-/* ==========================================================
-   CART PAGE — RESPONSIVENESS
-   ========================================================== */
+/* CART PAGE — RESPONSIVENESS */
+@media (min-width: 901px) {
+  .cart-page__items {
+    max-height: calc(100vh - 250px); 
+    overflow-y: auto;
+    padding-right: 16px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(43, 36, 32, 0.2) transparent;
+  }
+  .cart-page__items::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  .cart-page__items::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .cart-page__items::-webkit-scrollbar-thumb {
+    background: rgba(43, 36, 32, 0.15);
+    border-radius: 10px;
+  }
+
+  .cart-page__items::-webkit-scrollbar-thumb:hover {
+    background: rgba(43, 36, 32, 0.3);
+  }
+  .cart-page__summary {
+    position: sticky;
+    top: 120px;
+  }
+}
 
 @media (max-width: 900px) {
   .cart-page__layout {
@@ -273,8 +300,6 @@
     font-size: 26px;
     margin-bottom: 32px;
   }
-
-  /* Stack Item internal layout on mobile */
   .cart-page__item {
     flex-wrap: wrap;
     gap: 16px;
