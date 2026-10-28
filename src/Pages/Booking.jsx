@@ -111,7 +111,6 @@ function Booking() {
             </Link>
           </div>
         </section>
-        <Footer />
       </>
     );
   }
