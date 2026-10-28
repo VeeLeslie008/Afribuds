@@ -18,7 +18,7 @@ export const menuDishes = [
     price: '₦3,000', 
     rating: 4.9, 
     reviews: 120, 
-    image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://migranx.com/_next/image?url=%2Fimages%2Ftaste-of-home-i.webp&w=828&q=75' 
   },
   { 
     id: 's2', 
@@ -29,7 +29,7 @@ export const menuDishes = [
     price: '₦3,000', 
     rating: 4.8, 
     reviews: 95, 
-    image: 'https://images.unsplash.com/photo-1604328698692-f76ea9498e76?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXwhWw7ETMZ4HbFclNiLRy1qzBj3f9R0JgoSC_9lr2jA&s=10' 
   },
   { 
     id: 's3', 
@@ -40,7 +40,7 @@ export const menuDishes = [
     price: '₦3,500', 
     rating: 4.9, 
     reviews: 210, 
-    image: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrw431yBbGyu9ZQMzQ9jGpQo95IiVk40ZtI0RM_-cK-kTMTGGnwoSrtz_S&s=10' 
   },
   { 
     id: 's4', 
@@ -51,7 +51,7 @@ export const menuDishes = [
     price: '₦2,500', 
     rating: 4.6, 
     reviews: 88, 
-    image: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiYiIifN35uQ-7scRBb_qU2SUaxlXfg7M_yREdCUlVUg&s=10' 
   },
   { 
     id: 's5', 
@@ -62,7 +62,7 @@ export const menuDishes = [
     price: '₦4,000', 
     rating: 4.9, 
     reviews: 145, 
-    image: 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2Z9_kFy3l4KZsjkIKtR9LB9VH6fl81V6ExEngQEqj1Q&s=10' 
   },
   { 
     id: 's6', 
@@ -73,7 +73,7 @@ export const menuDishes = [
     price: '₦4,000', 
     rating: 4.8, 
     reviews: 132, 
-    image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlFU8iVNhHPH_cqup-2EBhKU6MclybyjQtgr7WYW457g&s=10' 
   },
   { 
     id: 's7', 
@@ -84,7 +84,7 @@ export const menuDishes = [
     price: '₦3,500', 
     rating: 4.7, 
     reviews: 110, 
-    image: 'https://images.unsplash.com/photo-1604328698692-f76ea9498e76?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaI3aT7kYE1pcTVUP9c__OolljDGH8IKkbS1d2Z84o1w&s=10' 
   },
   { 
     id: 's8', 
@@ -95,7 +95,7 @@ export const menuDishes = [
     price: '₦3,000', 
     rating: 4.8, 
     reviews: 75, 
-    image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxGgEa6LGBQV6SpIWClPABSfqkvQ72tACzE7eSIAiJwQ&s=10' 
   },
   { 
     id: 's9', 
@@ -106,7 +106,7 @@ export const menuDishes = [
     price: '₦3,500', 
     rating: 4.9, 
     reviews: 165, 
-    image: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmVk3OJOXKyBT1Z3gLxJ8bG5ng2Uv6xDG_5ImzTBtTPA&s=10' 
   },
   { 
     id: 's10', 
@@ -117,7 +117,7 @@ export const menuDishes = [
     price: '₦3,000', 
     rating: 4.6, 
     reviews: 60, 
-    image: 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOhPDeOwd64SEYlHWSx6uXPxlNVAW_bzQ0Ra3agLztiQ&s=10' 
   },
   { 
     id: 's11', 
@@ -128,7 +128,7 @@ export const menuDishes = [
     price: '₦2,500', 
     rating: 4.5, 
     reviews: 50, 
-    image: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEHMBPIiFBclB3ebD1NauSez6MfWEu13YhHMIx9r5Wgw&s=10' 
   },
   { 
     id: 's12', 
@@ -139,7 +139,7 @@ export const menuDishes = [
     price: '₦2,500', 
     rating: 4.7, 
     reviews: 80, 
-    image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiT-mub4-RIuUwtykQoAFXxA5dZr0q7BQ_ylRxkg0dzg&s=10' 
   },
 
   // --- NATIVE & SWALLOW (10) ---
@@ -152,7 +152,7 @@ export const menuDishes = [
     price: '₦4,000', 
     rating: 4.9, 
     reviews: 302, 
-    image: 'https://images.unsplash.com/photo-1604328698692-f76ea9498e76?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://www.mydiasporakitchen.com/wp-content/uploads/2017/11/img_1798.jpg' 
   },
   { 
     id: 'n2', 
@@ -163,18 +163,18 @@ export const menuDishes = [
     price: '₦4,000', 
     rating: 4.9, 
     reviews: 250, 
-    image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD036pCx3CTvBu4Aq85ZPgUQ4byiFOV17Q3KnITS-uTw&s=10' 
   },
   { 
     id: 'n3', 
     name: 'Ofada Rice & Ayamase', 
     category: 'native', 
     tag: 'Classic', 
-    description: 'Local unpolished rice served with spicy green pepper stew.', 
+    description: 'Local unpolished rice served with spicy red pepper stew.', 
     price: '₦3,500', 
     rating: 4.8, 
     reviews: 190, 
-    image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPsXRSf_l2P2hFTjTNO95PRNMbk-n7zEy97YC9ZQ6FiQ&s=10h' 
   },
   { 
     id: 'n4', 
@@ -185,7 +185,7 @@ export const menuDishes = [
     price: '₦3,000', 
     rating: 4.7, 
     reviews: 115, 
-    image: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhVZhzqlv_OMT-6dkZqK9K9S5K5ak4Tsj8i6tD_G5zMA&s=10' 
   },
   { 
     id: 'n5', 
@@ -196,7 +196,7 @@ export const menuDishes = [
     price: '₦3,000', 
     rating: 4.9, 
     reviews: 320, 
-    image: 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkWY79p3zFX9wVt6wDbiV-6jzhvzT8itQuIutrQlieYA&s=10' 
   },
   { 
     id: 'n6', 
@@ -207,43 +207,10 @@ export const menuDishes = [
     price: '₦2,500', 
     rating: 4.6, 
     reviews: 85, 
-    image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGNXP1AYiRjxDe7xwDHxURnvss_QSsXScMp72_yAJvBQ&s=10' 
   },
   { 
     id: 'n7', 
-    name: 'Dambu Nama', 
-    category: 'native', 
-    tag: 'Snack', 
-    description: 'Shredded spiced beef, a popular Northern delicacy.', 
-    price: '₦2,000', 
-    rating: 4.8, 
-    reviews: 140, 
-    image: 'https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=600&q=80' 
-  },
-  { 
-    id: 'n8', 
-    name: 'Fura da Nunu', 
-    category: 'native', 
-    tag: 'Drink', 
-    description: 'Refreshing millet balls mixed with fermented milk.', 
-    price: '₦1,500', 
-    rating: 4.7, 
-    reviews: 95, 
-    image: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=600&q=80' 
-  },
-  { 
-    id: 'n9', 
-    name: 'Waina (Masa)', 
-    category: 'native', 
-    tag: 'Breakfast', 
-    description: 'Fermented rice cakes, soft and slightly sour, served with soup.', 
-    price: '₦1,500', 
-    rating: 4.5, 
-    reviews: 60, 
-    image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80' 
-  },
-  { 
-    id: 'n10', 
     name: 'Pounded Yam & Egusi', 
     category: 'native', 
     tag: 'Classic', 
@@ -251,7 +218,7 @@ export const menuDishes = [
     price: '₦3,000', 
     rating: 4.9, 
     reviews: 210, 
-    image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://migranx.com/_next/image?url=%2Fimages%2Ftaste-of-home-i.webp&w=828&q=75' 
   },
 
   // --- STARTERS (8) ---
@@ -264,7 +231,7 @@ export const menuDishes = [
     price: '₦2,500', 
     rating: 4.9, 
     reviews: 450, 
-    image: 'https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDiQrQUWDQi7Oj3SNKLT5oQaATMLwFfGclCJ6a2WEryG0k2qt9SaqihTM&s=10' 
   },
   { 
     id: 'st2', 
@@ -275,7 +242,7 @@ export const menuDishes = [
     price: '₦3,500', 
     rating: 4.8, 
     reviews: 220, 
-    image: 'https://images.unsplash.com/photo-1604328698692-f76ea9498e76?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcn4GINVWBlVnqFbcZ50b4uzSRpKAmjZQdyKDP7uG6GA&s=10' 
   },
   { 
     id: 'st3', 
@@ -286,7 +253,7 @@ export const menuDishes = [
     price: '₦2,500', 
     rating: 4.9, 
     reviews: 310, 
-    image: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNksyv5w3eH7n2nv4bxcUo7d-gH1QGPFtRkOGjbPn9PA&s=10' 
   },
   { 
     id: 'st4', 
@@ -297,7 +264,7 @@ export const menuDishes = [
     price: '₦2,000', 
     rating: 4.7, 
     reviews: 150, 
-    image: 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6vf72Jf-YDeUYqUdTUo_xcW1gMmpEBYHC0jRyJi5QwQ&s=10' 
   },
   { 
     id: 'st5', 
@@ -308,7 +275,7 @@ export const menuDishes = [
     price: '₦4,000', 
     rating: 4.8, 
     reviews: 110, 
-    image: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX9DOwD5OiLpGakCsTf6jW2_hFaYO-G5C4xA-yrBIzRQ&s=10' 
   },
   { 
     id: 'st6', 
@@ -319,7 +286,7 @@ export const menuDishes = [
     price: '₦1,500', 
     rating: 4.9, 
     reviews: 280, 
-    image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://www.surulerefoods.com/cdn/shop/files/moi_4.png?v=1771343665&width=1445' 
   },
   { 
     id: 'st7', 
@@ -330,7 +297,7 @@ export const menuDishes = [
     price: '₦1,000', 
     rating: 4.7, 
     reviews: 190, 
-    image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8L4-CPvDgazgl5EC95wCuqn6XYhobcegcopzybQii7A&s=10' 
   },
   { 
     id: 'st8', 
@@ -341,7 +308,7 @@ export const menuDishes = [
     price: '₦3,000', 
     rating: 4.8, 
     reviews: 340, 
-    image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://getbumpa.com/cdn-cgi/image/format=auto,w_800/https%3A%2F%2Fdodptt9f4zk9h.cloudfront.net%2Fstores%2F139851%2Fproducts%2Fb5bd56b1f08b3e243ee692b13bc3721a25e189f3.jpeg' 
   },
 
   // --- SNACKS (8) ---
@@ -354,7 +321,7 @@ export const menuDishes = [
     price: '₦1,000', 
     rating: 4.9, 
     reviews: 500, 
-    image: 'https://images.unsplash.com/photo-1626094309830-abbb0c99da4a?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTYd0LTiPpAPvDBL6QJdHLX5YLnRQbnOe65ZRJ9uc6OA&s=10' 
   },
   { 
     id: 'sn2', 
@@ -365,7 +332,7 @@ export const menuDishes = [
     price: '₦1,500', 
     rating: 4.8, 
     reviews: 420, 
-    image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFenSZlaVmRagy-9VRCGej71v_KAIyyMj6_Ydfm-uEHw&s=10' 
   },
   { 
     id: 'sn3', 
@@ -376,7 +343,7 @@ export const menuDishes = [
     price: '₦1,000', 
     rating: 4.7, 
     reviews: 230, 
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2W8k5wsBrAWr47g9nk6Q8K3n44-pG_ROEozKjQ0gyGQ&s=10' 
   },
   { 
     id: 'sn4', 
@@ -387,7 +354,7 @@ export const menuDishes = [
     price: '₦500', 
     rating: 4.5, 
     reviews: 120, 
-    image: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5ZvcaJVpt3QBJVo-9_3AGo2tvDH9J-gcq1fYUIgbCnA&s=10' 
   },
   { 
     id: 'sn5', 
@@ -398,7 +365,7 @@ export const menuDishes = [
     price: '₦500', 
     rating: 4.6, 
     reviews: 110, 
-    image: 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPhMOTkfVHoDql9n0TbYwWgplSfIrMWvhqjOeklPDjhA&s=10' 
   },
   { 
     id: 'sn6', 
@@ -409,29 +376,18 @@ export const menuDishes = [
     price: '₦1,000', 
     rating: 4.8, 
     reviews: 380, 
-    image: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHSfCR2y7c2olb3-_AbG6n-Eq4_2k-FsIqNYSLYEE5Yw&s=10' 
   },
   { 
     id: 'sn7', 
-    name: 'Roasted Corn', 
-    category: 'snacks', 
-    tag: 'Street Food', 
-    description: 'Charred roasted corn on the cob, served with coconut or pear.', 
-    price: '₦1,000', 
-    rating: 4.7, 
-    reviews: 150, 
-    image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80' 
-  },
-  { 
-    id: 'sn8', 
     name: 'Buns (Fried Dough)', 
     category: 'snacks', 
     tag: 'Sweet', 
     description: 'Dense, sweet fried dough balls, similar to puff puff but crunchier.', 
-    price: '₦1,000', 
+    price: '₦500', 
     rating: 4.6, 
     reviews: 90, 
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwN0GSCGIvGEfl7CiM4wXHyxT5uE-jb3v_GNuqv57oWA&s=10' 
   },
 
   // --- PASTRIES (8) ---
@@ -441,10 +397,10 @@ export const menuDishes = [
     category: 'pastries', 
     tag: 'Classic', 
     description: 'Flaky pastry filled with seasoned minced meat, potatoes, and carrots.', 
-    price: '₦1,500', 
+    price: '₦1,200', 
     rating: 4.9, 
     reviews: 410, 
-    image: 'https://images.unsplash.com/photo-1626094309830-abbb0c99da4a?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVNpjig-XkOAijdYPvlwqzJV4PH_Mt09w6NsmGlayOsQ&s=10' 
   },
   { 
     id: 'p2', 
@@ -452,10 +408,10 @@ export const menuDishes = [
     category: 'pastries', 
     tag: 'Popular', 
     description: 'Soft pastry wrapped around a seasoned sausage.', 
-    price: '₦1,000', 
+    price: '₦700', 
     rating: 4.8, 
     reviews: 350, 
-    image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK7H43O1VuyBSAEoSHZpgT3sRHoQ5muXfo1Al0Ri0-yQ&s=10' 
   },
   { 
     id: 'p3', 
@@ -463,10 +419,10 @@ export const menuDishes = [
     category: 'pastries', 
     tag: 'Classic', 
     description: 'Golden fried dough wrapped around a whole boiled egg.', 
-    price: '₦1,000', 
+    price: '₦750', 
     rating: 4.7, 
     reviews: 200, 
-    image: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-rQFROq3i2bA7gBFGxhUOOvRcnhIm1rnxg1zhCxNEg&s=10' 
   },
   { 
     id: 'p4', 
@@ -474,10 +430,10 @@ export const menuDishes = [
     category: 'pastries', 
     tag: 'Savory', 
     description: 'Flaky pastry filled with seasoned fish and potatoes.', 
-    price: '₦1,500', 
+    price: '₦800', 
     rating: 4.8, 
     reviews: 180, 
-    image: 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfTNVvIgQqOw5bqb5ubQJNtRzzsROmiVwRMS5TIZ2hwg&s=10' 
   },
   { 
     id: 'p5', 
@@ -485,10 +441,10 @@ export const menuDishes = [
     category: 'pastries', 
     tag: 'Savory', 
     description: 'Similar to meat pie but filled with shredded chicken.', 
-    price: '₦1,500', 
+    price: '₦1,000', 
     rating: 4.7, 
     reviews: 160, 
-    image: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSPxyfdVFupgiMaVlDxxBa_5eJmYnwSvR_x27IAnnAZA&s=10' 
   },
   { 
     id: 'p6', 
@@ -499,7 +455,7 @@ export const menuDishes = [
     price: '₦800', 
     rating: 4.6, 
     reviews: 220, 
-    image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOcmCvTB5fruopAqD1pqy6tvuEsOFh1_EeGGFpIZMCTg&s=10ttps://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80h' 
   },
   { 
     id: 'p7', 
@@ -510,7 +466,7 @@ export const menuDishes = [
     price: '₦500', 
     rating: 4.5, 
     reviews: 100, 
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtTYgyNNdkAfAXg6JqfvTb1KHLqk7EP1LjIQSItZxdvg&s=10' 
   },
   { 
     id: 'p8', 
@@ -518,9 +474,9 @@ export const menuDishes = [
     category: 'pastries', 
     tag: 'Sweet', 
     description: 'Extra-large, fluffy puff puff balls.', 
-    price: '₦2,000', 
+    price: '₦1,500', 
     rating: 4.8, 
     reviews: 190, 
-    image: 'https://images.unsplash.com/photo-1626094309830-abbb0c99da4a?auto=format&fit=crop&w=600&q=80' 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRsgX-u7ZEIfFvg56nujYvgJs0ZRDlLsQLuxXc_WwStQ&s=10' 
   },
 ];

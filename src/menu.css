@@ -77,13 +77,14 @@
 
 .menu-page__search-clear {
   position: absolute;
-  right: 12px;
-  background: transparent;
+  right: 25px;
+  top: 15%;
+  background: rgba(255, 255, 255, 0.5);
   border: none;
   color: rgba(43, 36, 32, 0.4);
   cursor: pointer;
-  font-size: 14px;
-  padding: 4px;
+  font-size: 17px;
+  padding: 10px;
 }
 
 /* ---------- Sections ---------- */
