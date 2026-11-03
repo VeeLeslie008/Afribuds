@@ -21,7 +21,7 @@ function Contact() {
   function handleSubmit(event) {
     event.preventDefault();
     setSubmitted(true);
-    // TODO: wire up to your backend / email service
+
   }
 
   function resetForm() {
@@ -44,7 +44,7 @@ function Contact() {
         <h2 className="contact__title">Let's get in touch.</h2>
 
         <div className="contact__grid">
-          {/* ---------- Left — Info card ---------- */}
+          {/* Left — Info card */}
           <aside className="contact__info">
             <h3 className="contact__info-title">Contact Information</h3>
 
@@ -71,7 +71,7 @@ function Contact() {
             </ul>
           </aside>
 
-          {/* ---------- Right — Form / Success ---------- */}
+          {/* Right — Form/Success */}
           <div className="contact__form-wrap">
             {submitted ? (
               <div className="contact__success">
@@ -170,7 +170,7 @@ function Contact() {
         </div>
       </div>
 
-      {/* ---------- Full-width Map ---------- */}
+      {/*  Full-width Map  */}
       <div className="contact__map-wrap">
         <div className="contact__map">
           <iframe
