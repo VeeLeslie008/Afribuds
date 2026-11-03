@@ -444,7 +444,7 @@ export const footerColumns = [
       { label: 'About Us', href: '/about' },
       { label: 'Our Chefs', href: '/about' },
       { label: 'Careers', href: '/careers' },
-      { label: 'Terms & Conditions', href: '/terms' }, // Added here
+      { label: 'Terms & Conditions', href: '/terms' },
     ],
   },
   {

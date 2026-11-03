@@ -8,7 +8,7 @@ function Testimonials() {
   const trackRef = useRef(null);
   const activeSlideRef = useRef(0);
 
-  // --- Intersection Observer for Animations ---
+  //Intersection Observer for Animations
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -18,11 +18,11 @@ function Testimonials() {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            observer.disconnect(); // Only animate once
+            observer.disconnect();
           }
         });
       },
-      { threshold: 0.15 } // Triggers when 15% of the section is visible
+      { threshold: 0.15 } 
     );
 
     if (sectionRef.current) {
@@ -33,7 +33,6 @@ function Testimonials() {
       observer.disconnect();
     };
   }, []);
-  // ----------------------------------------------
 
   useEffect(
     function () {
